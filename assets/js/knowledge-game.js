@@ -159,7 +159,7 @@ $(document).on("keypress", function(e) {
     // associating the keyboard button id to the physical jeyboard key pressed.
     const button = document.getElementById(e.key);
     // checking if the button has already been given a class 
-    if (button.classList.contains("keyboard-button-fail" || "keyboard-button-success")) {
+    if (button.classList.contains("keyboard-button-fail") || button.classList.contains("keyboard-button-success")) {
         return false;
     }
     // retrieve indexes for the correct character if there are
