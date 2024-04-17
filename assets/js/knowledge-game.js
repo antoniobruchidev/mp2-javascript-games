@@ -98,3 +98,31 @@ const createHint = (word) => {
         $(".definition")[0].textContent = hint;
     } 
 }
+
+/**
+ * function that for each character of the word at the current index, creates a div with a span and populate it with the character. 
+ * It calls the createHint function and finally change the words index for the next call
+ */
+const createWordFields = () => {
+    let wordCharacterFields = "";
+    let word = hangman.words[hangman.i];
+    let characters = [...word];
+    for (let character of characters) { 
+        wordCharacterFields += `
+        <div class="word-character">
+            <span>${character}</span>
+        </div>
+        `
+    }
+    $("#word-container").append(wordCharacterFields);
+    createHint(word);
+    hangman.i++;
+}
+
+/**
+ * click event listener for the new knowledge game button
+ */
+$("#newKnowledge").on("click",function() {
+    hangman.score = 0;
+    createWordFields();
+})

@@ -369,6 +369,26 @@ h1 {
     margin: auto;
 }
 
+.word-character {
+    display: inline-block;
+    height:20px;
+    width: 20px;
+    margin-right: 3px;
+    border-bottom: 2px solid greenyellow;
+    padding: auto auto 0 auto
+}
+
+.word-character span {
+    display: inline-block;
+    width: 100%;
+    display: none;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: greenyellow;
+}
+
 /*------------------------Keyboard-----------*/
 
 #keyboard-1 {
