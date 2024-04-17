@@ -176,6 +176,10 @@ $(document).on("keypress", function(e) {
             // showing the correct characters
             $(spans[result]).addClass("character-correct").show("fade");
         }
+        // check if the word has being guessed 
+        if(checkIfFinished()) {
+            keyboardSuccess();
+        }
     }
 });
 
@@ -221,3 +225,20 @@ const showHangman = () => {
 
 /** functions that sets each keyboard button background color to red */
 const keyboardFail = () => $(".keyboard").removeClass("keyboard-button-success").removeClass("keyboard-button").addClass("keyboard-button-fail");
+
+/** function that sets each keyboard button background color to green */
+const keyboardSuccess = () => $(".keyboard").removeClass("keyboard-button-fail").removeClass("keyboard-button").addClass("keyboard-button-success");
+
+/** function that check if every character in the word has the character-correct class
+ * @returns bool
+ */
+const checkIfFinished = () => {
+    let spans = $(".word-container span");
+    for (let span of spans) {
+        if (!$(span).hasClass("character-correct")) {
+            console.log("has not correct character", span)
+            return false;
+        }
+    }
+    return true;
+}
