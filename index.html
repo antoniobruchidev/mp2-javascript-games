@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Games by antoniobruchidev</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header class="container">
+        <h1 class="text-center">Javascript GAMES by antoniobruchidev</h1>
+    </header>
+
+    <!-------------------------- Landing Page ---------------------------->
+    <section id="homePage" class="home-bg-color">
+        <!-- Game Choices Container-->
+        <div class="main-navigation">
+            <!-- Game Choice -->
+            <div class="game-choice">
+                <button id="logicGameButton" class="text-center home-button">Logic Game</button>
+                <div class="game-desc-image">
+                    <div class="game-desc">
+                        <h3>Fibonacci sequence game</h3>
+                        <p>Put the cards back in order to achieve a win!</p>
+                    </div>
+                    <div class="game-image" id="logicGame"></div>
+                </div>
+            </div>
+            <!-- Game Choice End -->
+            <!-- Game Choice -->
+            <div class="game-choice">
+                <button id="knowledgeGameButton" class="text-center home-button">Knowledge Game</button>
+                <div class="game-desc-image">
+                    <div class="game-desc">
+                        <h3>Hangman</h3>
+                        <p>Pick the word correct characters to save the hanged man!</p>
+                    </div>
+                    <div class="game-image" id="knowledgeGame"></div>
+                </div>
+            </div>
+            <!-- Game Choice End -->
+        </div>
+        <!-- Game Choices Container End-->
+    </section>
+    <!-------------------------- Landing Page End ------------------------>
+
+
+    <!-------------------------- Logic Game Page ------------------------->
+    <section id="logicGamePage" class="logic-bg-color">
+        <!-- Game Title visible only when not playing -->
+        <div class="container section-heading" id="logic-heading">
+            <div class="section-heading">
+                <h3 class="title text-center">Fibonacci sequence game</h3>
+                <p class="desc text-center">Challenge your logic putting the cards back in order</p>
+            </div>
+        </div>
+        <!-- Game Title End -->
+        <!-- Current Game Score -->
+        <div class="container" id="logic-score">
+            <div class="moves">
+                <p class="moves-counter">Your moves: <span id="moves">0</span></p>
+            </div>
+        </div>
+        <!-- Current Game Score End -->
+        <!-- Squares Container -->
+        <div id="logic-game-area" class="container lga-success">
+            <!-- Set of squares which will be droppable -->
+            <div class="square square-backlight" id="backlight-one"></div>
+            <div class="square square-backlight" id="backlight-two"></div>
+            <div class="square square-backlight" id="backlight-three"></div>
+            <div class="square square-backlight" id="backlight-four"></div>
+            <div class="square square-backlight" id="backlight-five"></div>
+            <div class="square square-backlight" id="backlight-six"></div>
+            <div class="square square-backlight" id="backlight-seven"></div>
+            <div class="square square-backlight" id="backlight-eight"></div>
+            <div class="square square-backlight" id="backlight-nine"></div>
+            <div class="square square-backlight" id="backlight-ten"></div>
+            <div class="square square-backlight" id="backlight-eleven"></div>
+            <div class="square square-backlight" id="backlight-twelve"></div>
+            <div class="square square-backlight" id="backlight-thirteen"></div>
+            <div class="square square-backlight" id="backlight-fourteen"></div>
+            <div class="square square-backlight" id="backlight-fifteen"></div>
+            <div class="square square-backlight" id="backlight-empty"></div>
+            <!-- Set of squares End -->
+            <!-- Set of squares which will be draggable -->
+            <div class="square square-disabled" id="one">
+                <span>1</span>
+            </div>
+            <div class="square square-disabled" id="two">
+                <span>1</span>
+            </div>
+            <div class="square square-disabled" id="three">
+                <span>2</span>
+            </div>
+            <div class="square square-disabled" id="four">
+                <span>3</span>
+            </div>
+            <div class="square square-disabled" id="five">
+                <span>5</span>
+            </div>
+            <div class="square square-disabled" id="six">
+                <span>8</span>
+            </div>
+            <div class="square square-disabled" id="seven">
+                <span>13</span>
+            </div>
+            <div class="square square-disabled" id="eight">
+                <span>21</span>
+            </div>
+            <div class="square square-disabled" id="nine">
+                <span>34</span>
+            </div>
+            <div class="square square-disabled" id="ten">
+                <span>55</span>
+            </div>
+            <div class="square square-disabled" id="eleven">
+                <span>89</span>
+            </div>
+            <div class="square square-disabled" id="twelve">
+                <span>144</span>
+            </div>
+            <div class="square square-disabled" id="thirteen">
+                <span>233</span>
+            </div>
+            <div class="square square-disabled" id="fourteen">
+                <span>377</span>
+            </div>
+            <div class="square square-disabled" id="fifteen">
+                <span>610</span>
+            </div>
+            <div class="square" id="empty"></div>
+            <!-- Set of squares End -->
+        </div>
+        <!-- Squares Container End -->
+        <!-- Button Container -->
+        <div class="container logic-control-area">
+            <button id="newLogic" class="text-center game-button">New Game</button>
+            <button id="logicRules" class="text-center game-button">Rules</button>
+            <button id="homeLogic" class=" text-center game-button">Home</button>
+        </div>
+        <!-- Button Container End -->
+    </section>
+    <!-------------------------- Logic Game Page End --------------------->
+
+    <!-------------------------- Knowledge Game Page --------------------->
+    <section id="knowledgeGamePage" class="knowledge-bg-color">
+        <!-- Game Title visible only when not playing -->
+        <div class="container section-heading">
+            <h3 class="title">Hangman</h3>
+            <p class="desc">Challenge your knowledge in this classic</p>
+        </div>
+        <!-- Game Title End-->
+        <!-- Current Game Score -->
+        <div class="container" id="knowledge-score">
+            <div class="mistakes">
+                <p class="mistakes-counter">Your mistakes: <span id="mistakes">0</span></p>
+            </div>
+        </div>
+        <!-- Current Game Score End -->
+        <!-- Knowledge Game Container-->
+        <div class="container">
+            <!-- Game area with position relative -->
+            <div class="knowledge-game-area">
+                <!-- Hangman -->
+                <div class="hangman hangman-head"></div>
+                <div class="hangman hangman-right-arm"></div>
+                <div class="hangman hangman-left-arm"></div>
+                <div class="hangman hangman-body"></div>
+                <div class="hangman hangman-right-leg"></div>
+                <div class="hangman hangman-left-leg"></div>
+                <div class="hangman hangman-right-arm"></div>
+                <div class="hangman dead-hangman-right-arm"></div>
+                <div class="hangman dead-hangman-left-arm"></div>
+                <!-- Hangman end -->
+                <!-- Hint-->
+                <div class="hangman hint">
+                    <p>HINT:</p>
+                    <p class="definition"></p>
+                </div>
+                <!-- Hint End -->
+                <!-- Word Character Container -->
+                <div class="word-container" id="word-container"></div>
+                <!-- Word Character Container End -->
+            </div>
+            <!-- Game area with position relative End-->
+        </div>
+        <!-- Keyboard Container -->
+        <div class="container">
+            <!-- Keyboard First Line -->
+            <div id="keyboard-1">
+                <button id="q" class="keyboard keyboard-button">q</button>
+                <button id="w" class="keyboard keyboard-button">w</button>
+                <button id="e" class="keyboard keyboard-button">e</button>
+                <button id="r" class="keyboard keyboard-button">r</button>
+                <button id="t" class="keyboard keyboard-button">t</button>
+                <button id="y" class="keyboard keyboard-button">y</button>
+                <button id="u" class="keyboard keyboard-button">u</button>
+                <button id="i" class="keyboard keyboard-button">i</button>
+                <button id="o" class="keyboard keyboard-button">o</button>
+                <button id="p" class="keyboard keyboard-button">p</button>
+            </div>
+            <!-- Keyboard Line End -->
+            <!-- Keyboard Second Line -->
+            <div id="keyboard-2">
+                <button id="a" class="keyboard keyboard-button">a</button>
+                <button id="s" class="keyboard keyboard-button">s</button>
+                <button id="d" class="keyboard keyboard-button">d</button>
+                <button id="f" class="keyboard keyboard-button">f</button>
+                <button id="g" class="keyboard keyboard-button">g</button>
+                <button id="h" class="keyboard keyboard-button">h</button>
+                <button id="j" class="keyboard keyboard-button">j</button>
+                <button id="k" class="keyboard keyboard-button">k</button>
+                <button id="l" class="keyboard keyboard-button">l</button>
+            </div>
+            <!-- Keyboard Line End -->
+            <!-- Keyboard Third Line -->
+            <div id="keyboard-3">
+                <button id="z" class="keyboard keyboard-button">z</button>
+                <button id="x" class="keyboard keyboard-button">x</button>
+                <button id="c" class="keyboard keyboard-button">c</button>
+                <button id="v" class="keyboard keyboard-button">v</button>
+                <button id="b" class="keyboard keyboard-button">b</button>
+                <button id="n" class="keyboard keyboard-button">n</button>
+                <button id="m" class="keyboard keyboard-button">m</button>
+            </div>
+            <!-- Keyboard Line End -->
+        </div>
+        <!-- Keyboard Container End -->
+        <!-- Button Container -->
+        <div class="container knowledge-control-area">
+            <button id="newKnowledge" class="text-center game-button">New Game</button>
+            <button id="knowledgeRules" class="text-center game-button">Rules</button>
+            <button id="homeKnowledge" class="text-center game-button">Home</button>
+        </div>
+        <!-- Button Container End -->
+    </section>
+    <!-------------------------- Knowledge Game Page End ----------------->
+
+    <!-------------------------- Rules/Landing Game Page ----------------->
+    <section id="game-landing">
+        <!-- Logic game rules container -->
+        <div id="logic-landing" class="container">
+            <div class="explanation">
+                <h4>How to play:</h4>
+                <p>
+                    Start a new game and you'll be presented with the first fifteen numbers of the Fibonacci
+                    sequence, only in a random order. Drag one of the highlighted squares into the empty one,
+                    then again, then again, until the squares are in the correct order.
+                </p>
+            </div>
+        </div>
+        <!-- Logic container End-->
+        <!-- Knowledge game rules container -->
+        <div id="knowledge-landing" class="container">
+            <!-- Loader -->
+            <div class="loader">
+                <h2 class="text-center">Loading words</h2>
+                <p id="starting-timer" class="text-center">Please wait...</p>
+            </div>
+            <div class="loader" id="loader">
+                <div class="loader-bar"></div>
+            </div>
+            <!-- Loader End -->
+            <div class="explanation">
+                <h4>How to play:</h4>
+                <p>
+                    Start a new game and try and guess the characters included in the random given word. Be carefull
+                    what you guess because you are allowed only six mistakes. Afther the second one you'll be given a
+                    hint. At the seventh, GAME OVER!
+                </p>
+            </div>
+        </div>
+        <!-- Knowledge container End-->
+    </section>
+    <!-------------------------- Rules/Landing Game Page End ------------->
+
+    <canvas class="background"></canvas><!-- Particles.js Background ----->
+
+    <!-------------------------- Scripts --------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+    <script>
+        window.onload = function () {
+            Particles.init({
+                // normal options
+                selector: '.background',
+                maxParticles: 250,
+                color: '#ADFF2F',
+                connectParticles: true,
+                // options for breakpoints
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        options: {
+                            maxParticles: 200,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        options: {
+                            maxParticles: 150,
+                        }
+                    },
+                    {
+                        breakpoint: 450,
+                        options: {
+                            maxParticles: 65,
+                        }
+                    },
+                    {
+                        breakpoint: 360,
+                        options: {
+                            maxParticles: 40,
+                        }
+                    }
+                ]
+            });
+        }
+    </script>
+    <!-------------------------- Scrpits End ----------------------------->
+</body>
+
+</html>

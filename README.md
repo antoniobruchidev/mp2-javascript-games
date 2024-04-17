@@ -1,39 +1,84 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Javascript GAMES by antoniobruchidev
 
-Welcome,
+## One logic game
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+To win the game the user has to form the fibonacci sequence from top-left.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+|Column 1        | Column 2       | Column 3       | Column 4       | TO             |Column 1        | Column 2       | Column 3       | Column 4       |
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
+| 5              | 1              | 34             | 610            |                | 1              | 1              | 2              | 3              |
+| 3              | 21             | 8              | 144            |  TO            | 5              | 8              | 13             | 21             |
+| 13             | 1              | 2              | 55             |                | 34             | 55             | 89             | 144            |
+| 89             | 377            | 233            |                |                | 233            | 377            | 610            |                |
 
-## Codeanywhere Reminders
+## One knowledge game
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+To win the game the user has to guess the correct characters included in a word, given its definition.
+Classic Hangman!
 
-`python3 -m http.server`
+## Table of Contents
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- [Javascript GAMES by antoniobruchidev](#Javascript GAMES by antoniobruchidev)
+  - [Table of Contents](#table-of-contents)
+    - [UX](#ux)
+    - [User stories](#user-stories)
+      - [Strategy](#strategy)
+      - [Scope](#scope)
+      - [Structure](#structure)
+      - [Skeleton](#skeleton)
+        - [Wireframes](#wireframes)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## UX
 
-`http_server`
+The website targets people wanting to relax playing some games.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### User stories
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- As a user I want to be able to play different kind of games.
+- As a user I want to fully understand the rules and how to play each game.
+- As a user I want to understand that my actions are recognized and interpreted well.
+- As a user I want to be able to check my current score.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Strategy
 
-To log into the Heroku toolbelt CLI:
+The goal is to make a well-functioning web application with which the user can interact and receive accurate responses.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Scope
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+I want users to be able to enjoy a brief amount of their time.
 
----
+### Structure
 
-Happy coding!
+This web application is single page based, composed by a header and four sections sittin on top a moving background. Only one section of the first three sections is visible at the time and in mobile view the header is visible only in the landing page. The fourth section is the rules/landing page for both games. It acts as a modal stacking on top of the other layers. The javascript will handle what will be visible on each sections, dependind from the user's request.
+
+**Website Sections:**
+| Section                | Content                                                       |
+|------------------------|---------------------------------------------------------------|
+| Landing page           | A header and the choice between two different games           |
+| Logic game page        | Logic game page                                               |
+| Knowledge game page    | Knwoledge game page                                           |
+| Rules game page        | Rules game page                                               |
+
+### Skeleton
+
+The website is designed to be clear and simple.
+
+#### Wireframes
+
+- [Home](assets/pdf/home-wireframe.pdf)
+- [Logic Game](assets/pdf/logic-wireframe.pdf)
+- [Knowledge Game](assets/pdf/knowledge-wireframe.pdf)
+
+### Surface
+
+I used greenyellow as color on an opacized particles background mostly.
+
+## Technologies
+
+1. HTML - To create a basic site.
+2. CSS - To create a nice, standout front-end and to give a great user experience.
+3. JS - To have nice moving background.
+
+## Credits
+
+1. [Moving background](https://github.com/marcbruederlin/particles.js)

@@ -1,0 +1,1049 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Workbench&display=swap');
+/*------------------------Particles------------*/
+
+html, body, section { 
+    height: 100%;
+}
+
+.container {
+  width: 1024px;
+  margin: auto auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-color: black;
+}
+
+/*------------------------General--------------*/
+
+.text-center {
+    text-align: center;
+}
+
+.home-button, .game-button {
+    border: 1px solid greenyellow;
+    font-family: "Workbench", sans-serif;
+    color: greenyellow;
+    background-color: darkgreen;
+}
+
+/*------------------------Header---------------*/
+
+h1 {
+    margin: 50px auto;
+    font-family: "Workbench", sans-serif;
+    font-weight: 400;
+    font-size: 58px;
+    color: greenyellow;
+}
+
+/*------------------------HomeSection----------*/
+
+.main-navigation {
+    margin-top: 280px;
+    display: flex;
+}
+
+.game-choice {
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    width: 540px;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 32px 0 rgba(173, 255, 47, 0.12);
+    display: inline-block;
+}
+
+.home-button {
+    font-size: 28px;
+    width: 30%;
+    height: 70px;
+    margin: 30px;
+}
+
+.game-desc-image {
+    position: relative;
+    width: 100%;
+    height: 190px;
+}
+
+.game-desc {
+    width: 35%;
+    position:absolute;
+    color: greenyellow;
+    left: 15px;
+    top:5px;
+}
+
+.game-image {
+    position: absolute;
+    top: -95px;
+    right: 15px;
+}
+
+#knowledgeGame {
+    background: url("../images/knowledge-game.png");
+}
+
+#logicGame {
+    background: url("../images/logic-game.png");
+}
+
+#knowledgeGame, #logicGame {
+    background-size: 100% 100%;
+    height: 260px;
+    width: 260px;
+}
+
+.logic-control-area, .knowledge-control-area {
+    display: flex;
+    margin: 40px auto 0 auto;
+}
+
+/*------------------------GeneralGameSection---*/
+
+.section-heading, .moves, .mistakes {
+    color: greenyellow;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 auto;
+}
+
+.game-button {
+    font-size: 18px;
+    margin: 0 auto;
+    height: 40px;
+    width: 30%;
+}
+
+#logic-score, #knowledge-score {
+    display: none;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.desc {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/*------------------------LogicGameArea--------*/
+
+#logic-game-area {
+    margin: 0 auto;
+    height: 364px;
+    width: 364px;
+    border: 2px solid greenyellow;
+    position: relative;
+    padding: 0;
+}
+
+.lga-success {
+    background-color: yellowgreen;
+}
+
+.square {
+    height: 86px;
+    width: 86px;
+    position: absolute;
+    z-index: 3;
+}
+.square-disabled {
+    border: 1px solid greenyellow;
+    background-color: green;
+    
+}
+#one, #backlight-one {
+    top: 2px;
+    left: 2px;
+}
+
+#two, #backlight-two {
+    top: 2px;
+    left: 92px;
+}
+
+#three, #backlight-three {
+    top: 2px;
+    left: 182px;
+}
+
+#four, #backlight-four {
+    top: 2px;
+    left: 272px;
+}
+
+#five, #backlight-five {
+    top: 92px;
+    left: 2px;
+}
+
+#six, #backlight-six {
+    top: 92px;
+    left: 92px;
+}
+
+#seven, #backlight-seven {
+    top: 92px;
+    left: 182px;
+}
+
+#eight, #backlight-eight {
+    top: 92px;
+    left: 272px;
+}
+
+#nine, #backlight-nine {
+    top: 182px;
+    left: 2px;
+}
+
+#ten, #backlight-ten {
+    top: 182px;
+    left: 92px;
+}
+
+#eleven, #backlight-eleven {
+    top: 182px;
+    left: 182px;
+}
+
+#twelve, #backlight-twelve {
+    top: 182px;
+    left: 272px;
+}
+
+#thirteen, #backlight-thirteen {
+    top: 272px;
+    left: 2px;
+}
+
+#fourteen, #backlight-fourteen {
+    top: 272px;
+    left: 92px;
+}
+
+#fifteen, #backlight-fifteen {
+    top: 272px;
+    left: 182px;
+}
+
+#empty, #backlight-empty {
+    top: 272px;
+    left: 272px;
+}
+
+#empty {
+    border: 1px dashed white;
+    background-color: green;
+    z-index: 2
+}
+
+.square span {
+    color: greenyellow;
+    font-family: "Workbench", sans-serif;
+    font-size: 36px;
+    text-shadow: 5px 2px 4px green;
+    width: 100%;
+    height: 86px;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
+    display: grid;
+}
+
+
+/*------------------------KnowledgeSection-----*/
+
+
+/*------------------------KnowledgeGameArea----*/
+
+.knowledge-game-area {
+    margin-top: 30px;
+    background: url("../images/hangman-greenyellow.png");
+    background-size: 100% 100%;
+    height: 381px;
+    max-width: 1024px;
+    position: relative;
+}
+
+.hangman-head, 
+.hangman-right-arm, 
+.hangman-left-arm, 
+.hangman-body, 
+.hangman-right-leg, 
+.hangman-left-leg, 
+.dead-hangman-left-arm, 
+.dead-hangman-right-arm,
+.hint {
+    position: absolute;
+    border-top: 2px solid greenyellow;
+    display: none;
+}
+
+.hangman-head {
+    left: 299px;
+    top: 77px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid greenyellow;
+}
+
+.hangman-right-arm {
+    rotate: 45deg;
+    left: 256px;
+    top: 129px;
+    width: 80px;
+}
+
+.hangman-left-arm {
+    rotate: -45deg;
+    left: 314px;
+    top: 129px;
+    width: 80px;
+}
+
+.dead-hangman-right-arm {
+    rotate: 135deg;
+    left: 256px;
+    top: 185px;
+    width: 80px;
+}
+
+.dead-hangman-left-arm {
+    rotate: -135deg;
+    left: 314px;
+    top: 185px;
+    width: 80px;
+}
+
+.hangman-body {
+    width: 75px;
+    rotate: 90deg;
+    left: 288px;
+    top: 167px;
+}
+
+.hangman-right-leg {
+    rotate: -45deg;
+    left: 256px;
+    top: 232px;
+    width: 80px;
+}
+
+.hangman-left-leg {
+    rotate: 45deg;
+    left: 314px;
+    top: 232px;
+    width: 80px;
+}
+
+.hint {
+    border: 1px solid darkgreen;
+    font-family: "Open Sans", sans-serif;
+    color:greenyellow;
+    border-radius: 15px;
+    width: 50%;
+    min-height: 100px;
+    background-color: rgba(0,0,0,0.8);
+    top: 55px;
+    left: 425px;
+    padding: 15px;
+}
+
+.word-container {
+    position: absolute;
+    bottom: 50px;
+    left: 140px;
+    margin: auto;
+}
+
+/*------------------------Keyboard-----------*/
+
+#keyboard-1 {
+    max-width: 660px;
+    margin: 1px auto;
+}
+
+#keyboard-2 {
+    max-width: 640px;
+    margin: 1px auto;
+}
+
+#keyboard-3 {
+    max-width:  590px;
+    margin: 1px auto;
+}
+
+.keyboard-character {
+    width: 56px;
+    height: 56x;
+    margin: 1px;
+}
+
+.keyboard {
+    padding: 0;
+    width: 56px;
+    height: 56px;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.keyboard-button, 
+.keyboard-button-success, 
+.keyboard-button-fail {
+    border-color: darkgreen;
+    color: yellowgreen;
+}
+
+.keyboard-button {
+    background-color: rgb(48, 48, 48);
+    border-color: darkgreen;
+}
+
+.keyboard-button-success {
+    background-color: green;
+}
+
+.keyboard-button-fail {
+    background-color: red;
+    color: black;
+}
+
+/*------------------------StartsHidden---------*/
+
+#logicGamePage, #knowledgeGamePage, .loader {
+    display: none;
+}
+
+/*------------------------RulesSection---------*/
+
+#game-landing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: -2;
+    display: grid;
+    align-content: center;
+    color: greenyellow;
+}
+
+#game-landing h2 {
+    font-family: "Workbench";
+}
+
+#game-landing p {
+    font-family: "Open Sans", sans-serif;
+}
+
+.loader-bar {    
+    width: 150px;
+    margin: 0 auto;
+    height: 20px;
+    background:
+     linear-gradient(greenyellow 0 0) 0/0% no-repeat
+     transparent;
+    animation: l1 2s infinite linear;
+  }
+  @keyframes l1 {
+      100% {background-size:100%}
+  }
+
+.explanation {
+    margin: auto auto;
+    width: 60%;
+    display: grid;
+    align-content: center;
+}
+
+.explanation h4 {
+    color: greenyellow;
+    font-size: 24px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.explanation p {
+    color: greenyellow;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+
+/*------------------------MediaQueries---------*/
+
+@media screen and (max-width: 1280px) {
+    h1 {
+        font-size: 48px;
+        margin: 60px auto;
+    }
+
+    .game-choice {
+        width: 360px;
+        height: 392px;
+    }
+
+    .home-button {
+        font-size: 24px;
+        width: 40%;
+        height: 70px;
+        margin: 15px;
+    }
+    
+    .game-desc {
+        width: 45%;
+        left: 185px;
+        top:-105px;
+        font-size: smaller;
+    }
+    
+    .game-image {
+        top: 15px;
+        left: 45px;
+    }
+
+    .container {
+        width: 560px;
+    }
+
+    .knowledge-game-area {
+        max-width: 800px;
+        margin: 15px auto;
+    }
+    
+    .title {
+        font-size: 28px;
+    }
+    
+    .desc {
+        font-size: 16px;
+    }
+
+    #keyboard-1 {
+        max-width: 550px;
+    }
+    
+    #keyboard-2 {
+        max-width: 530px;
+    }
+    
+    #keyboard-3 {
+        max-width:  480px;
+    }
+    
+    .keyboard-character {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .keyboard {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+    }
+
+    .hangman-head {
+        left: 151px;
+    }
+    
+    .hangman-right-arm {
+        left: 109px;
+    }
+    
+    .hangman-left-arm {
+        left: 167px;
+    }
+    
+    .dead-hangman-right-arm {
+        left: 109px;
+    }
+    
+    .dead-hangman-left-arm {
+        left: 167px;
+    }
+    
+    .hangman-body {
+        left: 141px;
+    }
+    
+    .hangman-right-leg {
+        left: 109px;
+    }
+    
+    .hangman-left-leg {
+        left: 167px;
+    }
+    
+    .hint {
+        left: 285px;
+        top: 10px;
+    }
+    
+    
+    .word-container {
+        bottom: 50px;
+        left: 140px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-navigation {
+        display: grid;
+        margin-top: 15px;
+    }
+
+    .home-button {
+        display: none;
+    }
+
+    .game-desc {
+        left: 15px;
+        top: 15px;
+        width: 85%;
+    }
+
+    .game-image {
+        top: 105px;
+        left: 51px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin: 40px auto;
+    }
+    .container {
+        width: 400px;
+    }
+
+    .knowledge-game-area {
+        max-width: 400px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .desc {
+        font-size: 14px;
+    }
+
+    #keyboard-1 {
+        max-width: 380px;
+    }
+    
+    #keyboard-2 {
+        max-width: 365px;
+    }
+    
+    #keyboard-3 {
+        max-width:  315px;
+    }
+    
+    .keyboard-character {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .keyboard {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .hangman-head {
+        left: 100px;
+    }
+    
+    .hangman-right-arm {
+        left: 58px;
+    }
+    
+    .hangman-left-arm {
+        left: 116px;
+    }
+    
+    .dead-hangman-right-arm {
+        left: 58px;
+    }
+    
+    .dead-hangman-left-arm {
+        left: 116px;
+    }
+    
+    .hangman-body {
+        left: 90px;
+    }
+    
+    .hangman-right-leg {
+        left: 58px;
+    }
+    
+    .hangman-left-leg {
+        left: 116px;
+    }
+    
+    .hint {
+        left: 155px;
+        top: -15px
+    }
+    
+    
+    .word-container {
+        left: 40px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 30px;
+        margin: 0 auto;
+    }
+
+    .game-choice {
+        height: 356px;
+        width: 300px;
+    }
+
+    .game-desc {
+        top: -5px;
+    }
+
+    .game-image {
+        width: 235px;
+        height: 235px;
+        top: 90px;
+        left: 22px;
+    }
+    
+    .container {
+        width: 364px;
+    }
+
+    .knowledge-game-area {
+        max-width: 330px;
+    }
+
+    #logic-game-area {
+        height: 364px;
+        width: 364px;
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+    
+    .desc {
+        font-size: 14px;
+    }
+    
+    #keyboard-1 {
+        max-width: 300px;
+    }
+    
+    #keyboard-2 {
+        max-width: 280px;
+    }
+    
+    #keyboard-3 {
+        max-width:  230px;
+    }
+    
+    .keyboard-character {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .keyboard {
+        width: 24px;
+        height: 24px;
+        font-size: 16px;
+    }
+    
+    .hangman-head {
+        left: 77px;
+    }
+    
+    .hangman-right-arm {
+        left: 35px;
+    }
+    
+    .hangman-left-arm {
+        left: 93px;
+    }
+    
+    .dead-hangman-right-arm {
+        left: 35px;
+    }
+    
+    .dead-hangman-left-arm {
+        left: 93px;
+    }
+    
+    .hangman-body {
+        left: 67px;
+    }
+    
+    .hangman-right-leg {
+        left: 35px;
+    }
+    
+    .hangman-left-leg {
+        left: 93px;
+    }
+    
+    .hint {
+        left: 135px;
+        top: -35px;
+        max-width: 220px;
+    }
+
+    .word-container {
+        bottom: 35px;
+        left: 25px;
+    }
+    
+    .word-character {
+        height:24px;
+        width: 16px;
+        margin-right: 1px;
+        border-bottom: 1px solid greenyellow;
+    }
+    
+    .word-character span {
+        width: 18px;
+    }
+    
+}
+
+@media screen and (max-width: 360px) {
+    h1 {
+        font-size: 24px;
+        margin: 0 auto;
+    }
+
+    .game-choice {
+        height: 276px;
+        width: 260px;
+    }
+    
+    .game-desc {
+        display: none;
+    }
+
+    .game-image {
+        width: 235px;
+        height: 235px;
+        top: 8px;
+        left: 0;
+    }
+    
+
+    .container {
+        max-width: 304px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .knowledge-game-area {
+        max-width: 304px;
+    }
+
+    #logic-game-area {
+        height: 304px;
+        width: 304px;
+    }
+    
+    .title {
+        font-size: 14px;
+    }
+    
+    .desc {
+        font-size: 12px;
+    }
+    
+    #keyboard-1 {
+        max-width: 270px;
+    }
+    
+    #keyboard-2 {
+        max-width: 265px;
+    }
+    
+    #keyboard-3 {
+        max-width:  215px;
+    }
+    
+    .keyboard-character {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .keyboard {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+    
+    .hangman-head {
+        left: 69px;
+    }
+    
+    .hangman-right-arm {
+        left: 27px;
+    }
+    
+    .hangman-left-arm {
+        left: 85px;
+    }
+    
+    .dead-hangman-right-arm {
+        left: 27px;
+    }
+    
+    .dead-hangman-left-arm {
+        left: 85px;
+    }
+    
+    .hangman-body {
+        left: 59px;
+    }
+    
+    .hangman-right-leg {
+        left: 27px;
+    }
+    
+    .hangman-left-leg {
+        left: 85px;
+    }
+    
+    .hint {
+        left: 115px;
+        top: -15px;
+        max-width: 155px;
+    }
+
+    .word-container {
+        bottom: 35px;
+        left: 22px;
+    }
+    
+    .word-character {
+        height:22px;
+        width: 14px;
+        margin-right: 1px;
+        border-bottom: 1px solid greenyellow;
+    }
+    
+    .word-character span {
+        width: 14px;
+    }
+
+    #logic-game-area {
+        margin: 0 auto;
+        height: 304px;
+        width: 304px;
+    }
+
+    .square {
+        height: 71px;
+        width: 71px;
+    }
+    
+    #two, #backlight-two {
+        top: 2px;
+        left: 77px;
+    }
+    
+    #three, #backlight-three {
+        top: 2px;
+        left: 152px;
+    }
+    
+    #four, #backlight-four {
+        top: 2px;
+        left: 227px;
+    }
+    
+    #five, #backlight-five {
+        top: 77px;
+        left: 2px;
+    }
+    
+    #six, #backlight-six {
+        top: 77px;
+        left: 77px;
+    }
+    
+    #seven, #backlight-seven {
+        top: 77px;
+        left: 152px;
+    }
+    
+    #eight, #backlight-eight {
+        top: 77px;
+        left: 227px;
+    }
+    
+    #nine, #backlight-nine {
+        top: 152px;
+        left: 2px;
+    }
+    
+    #ten, #backlight-ten {
+        top: 152px;
+        left: 77px;
+    }
+    
+    #eleven, #backlight-eleven {
+        top: 152px;
+        left: 152px;
+    }
+    
+    #twelve, #backlight-twelve {
+        top: 152px;
+        left: 227px;
+    }
+    
+    #thirteen, #backlight-thirteen {
+        top: 227px;
+        left: 2px;
+    }
+    
+    #fourteen, #backlight-fourteen {
+        top: 227px;
+        left: 77px;
+    }
+    
+    #fifteen, #backlight-fifteen {
+        top: 227px;
+        left: 152px;
+    }
+    
+    #empty, #backlight-empty {
+        top: 227px;
+        left: 227px;
+    }
+    
+    .square span {
+        font-family: "Workbench", sans-serif;
+        font-size: 32px;
+        text-shadow: 5px 2px 4px green;
+        width: 100%;
+        height: 71px;
+    }
+
+}
