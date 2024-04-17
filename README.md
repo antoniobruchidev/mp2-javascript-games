@@ -77,7 +77,7 @@ I used greenyellow as color on an opacized particles background mostly.
 
 1. HTML - To create a basic site.
 2. CSS - To create a nice, standout front-end and to give a great user experience.
-3. JS - To have nice moving background.
+3. JS - To have nice moving backgroun, game states.
 4. jQuery UI - Starting with the web app navigation, I'll use it for mostly everything in this progject.
 5. GIMP - To elaborate images.
 
