@@ -83,3 +83,18 @@ const getWords = async () => {
         console.error(error);
     }
 }
+
+/**
+ * Function that creates a single definition hint for a given word. Needs improvement in case the given word has no meaning as a noun
+ * @param {string} word 
+ */
+const createHint = (word) => {
+    let definitions = hangman.definitions;
+    console.log(definitions, word)
+    if (definitions[word].noun !== "") {
+        let definition = definitions[word].noun.slice(5);
+        let endDefinition = definition.indexOf("(nou)");
+        let hint = definition.slice(0, endDefinition)
+        $(".definition")[0].textContent = hint;
+    } 
+}
