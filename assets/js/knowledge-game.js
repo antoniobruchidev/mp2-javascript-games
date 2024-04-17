@@ -126,3 +126,62 @@ $("#newKnowledge").on("click",function() {
     hangman.score = 0;
     createWordFields();
 })
+
+/**
+ * Check if the spans children of word-container contain the given key, if so it'll push the index in an array and return it.
+ * @param {*} key 
+ * @returns array of indexes
+ */
+const checkCharacterInWord = ( key ) => {
+    let spans = $(".word-container span");
+    let result = [];
+    for (let i = 0; i < spans.length; i++ ) {
+        // checking the span content
+        let character = $(spans[i]).html()
+        if (character == key) {
+            // if content correct push the index
+            result.push(i);
+        }
+    }
+    return result;
+}
+
+/**
+ * add event listener for a keypress, pass the pressed key to checkCharacterInWord function
+ * expect an array of indexes for the first child of every div having word-character class
+ * 
+ */
+$(document).on("keypress", function(e) {
+    // check if word-container has children, if it hasn't need to start a new game
+    if($("#word-container").children().length === 0) {
+        return false;
+    }
+    // associating the keyboard button id to the physical jeyboard key pressed.
+    const button = document.getElementById(e.key);
+    // checking if the button has already been given a class 
+    if (button.classList.contains("keyboard-button-fail" || "keyboard-button-success")) {
+        return false;
+    }
+    // retrieve indexes for the correct character if there are
+    let results = checkCharacterInWord(e.key);
+    if (results.length === 0) {
+        // removing neutral class and adding failure one
+        $("#" + e.key).removeClass("keyboard-button").addClass("keyboard-button-fail");
+    } else {
+        //removing neutral class and adding success one
+        $("#" + e.key).removeClass("keyboard-button").addClass("keyboard-button-success");
+        let spans = $(".word-container span");
+        for (let result of results) {
+            // showing the correct characters
+            $(spans[result]).addClass("character-correct").show("fade");
+        }
+    }
+});
+
+/** Click event listener that fires the corresponding keypress event */
+$(".keyboard-button").on("click", function(e) {
+    const id = this.id;
+    $(document).trigger(
+        jQuery.Event( 'keypress', { key: id } )
+    );  
+});
