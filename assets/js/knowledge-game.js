@@ -124,7 +124,10 @@ const createWordFields = () => {
  */
 $("#newKnowledge").on("click",function() {
     hangman.score = 0;
+    resetWordFields();
     createWordFields();
+    resetHangman();
+    resetKeyboard();
 })
 
 /**
@@ -241,4 +244,19 @@ const checkIfFinished = () => {
         }
     }
     return true;
+}
+
+/** function that resets the displayed keyboard to the original state */
+const resetKeyboard = () => $(".keyboard").removeClass("keyboard-button-fail").removeClass("keyboard-button-success").addClass("keyboard-button");
+
+/** function that resets the hanged man to the original state */
+const resetHangman = () => $(".hangman").hide();
+
+/** function that resets the word's character fields */
+const resetWordFields = () => {
+    let spans = $("#word-container span");
+    for (let span of spans) {
+        $(span).removeClass("character-correct");
+    }
+    $("#word-container").html("");
 }
