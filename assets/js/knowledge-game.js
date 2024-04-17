@@ -3,7 +3,7 @@ let hangman = {
     score: 0,
     currentGameMistakes: 0,
     words: [],
-    definitions: { },
+    definitions: {},
     i: 0,
 };
 
@@ -12,19 +12,23 @@ const wordsUrl = 'https://a-randomizer-data-api.p.rapidapi.com/api/random/words?
 /** API options to retrieve 10 random words */
 const wordsOptions = {
     method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '4a1345c74amsh683f3f88b8c7adfp16be37jsn9e6b2f2a98af',
-		'X-RapidAPI-Host': 'a-randomizer-data-api.p.rapidapi.com'
-	}
+    headers: {
+        'X-RapidAPI-Key': '4a1345c74amsh683f3f88b8c7adfp16be37jsn9e6b2f2a98af',
+        'X-RapidAPI-Host': 'a-randomizer-data-api.p.rapidapi.com'
+    }
 };
-/* Api url for retrieving a single definition. Needs to be added the actual word */
+/**
+ * API url to retrieve the definition of a given word
+ * @param {string} word 
+ * @returns string
+ */
 const definitionUrl = (word) => `https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=${word}`;
 const definitionOptions = {
-   method: 'GET',
-   headers: {
-       'X-RapidAPI-Key': '4a1345c74amsh683f3f88b8c7adfp16be37jsn9e6b2f2a98af',
-       'X-RapidAPI-Host': 'twinword-word-graph-dictionary.p.rapidapi.com'
-   }
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '4a1345c74amsh683f3f88b8c7adfp16be37jsn9e6b2f2a98af',
+        'X-RapidAPI-Host': 'twinword-word-graph-dictionary.p.rapidapi.com'
+    }
 };
 
 /**
@@ -33,7 +37,7 @@ const definitionOptions = {
 const getDefinitions = () => {
     let words = hangman.words;
     for (let i = 0; i < words.length; i++) {
-        setTimeout(function(words, i) {
+        setTimeout(function (words, i) {
             getDefinition(words[i]);
         }, 1000, words, i);
     }
@@ -44,15 +48,15 @@ const getDefinitions = () => {
  * @param {string} word 
  */
 const getDefinition = async (word) => {
-        try {
-            const response = await fetch(definitionUrl(word), definitionOptions);
-            const result = await response.json();
-            const { meaning } = result;
-            const { noun, verb, adjective, adverb } = meaning
-            hangman.definitions[word] = { noun, verb, adjective, adverb };
-        } catch (error) {
-            console.error(error);
-        } 
+    try {
+        const response = await fetch(definitionUrl(word), definitionOptions);
+        const result = await response.json();
+        const { meaning } = result;
+        const { noun, verb, adjective, adverb } = meaning
+        hangman.definitions[word] = { noun, verb, adjective, adverb };
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 /**
@@ -62,7 +66,7 @@ const getDefinition = async (word) => {
  */
 const setWords = (words) => {
     hangman.words = words;
-    hangman.definitions = { };
+    hangman.definitions = {};
     hangman.i = 0;
 }
 
@@ -76,5 +80,5 @@ const getWords = async () => {
         setWords(result);
     } catch (error) {
         console.error(error);
-    }   
+    }
 }
