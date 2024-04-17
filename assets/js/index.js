@@ -75,6 +75,27 @@ const showHome = () => {
 /** Toggles the rules page back in the stack */
 const toggleRules = () => $("#game-landing").css("z-index", "-2");
 
+/** Toggles the knowledge rules page at the top of the stack */
+const toggleKnowledgeRules = () => {
+    $("#game-landing").css("z-index", "4");
+    $("#logic-landing").hide();
+    $("#knowledge-landing").show();
+    $("#loader").hide();
+}
+
+/** Toggles the logic rules page at the top of the stack */
+const toggleLogicRules = () => {
+    $("#game-landing").css("z-index", "4");
+    $("#knowledge-landing").hide();
+    $("#logic-landing").show();
+}
+
+/** Click event listener for the Knowledge Game Rules Button */
+$("#knowledgeRules").on("click", toggleKnowledgeRules);
+
+/** Click event listener for the Logic Game Rules Button */
+$("#logicRules").on("click", toggleLogicRules);
+
 /** Click event listener for the Logic Game Image */
 $("#logicGame").on("click", showLogic);
 /** Click event listener for the Logic Game Button */
