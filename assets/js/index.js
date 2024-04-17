@@ -74,3 +74,22 @@ const showHome = () => {
 
 /** Toggles the rules page back in the stack */
 const toggleRules = () => $("#game-landing").css("z-index", "-2");
+
+/** Click event listener for the Logic Game Image */
+$("#logicGame").on("click", showLogic);
+/** Click event listener for the Logic Game Button */
+$("#logicGameButton").on("click", showLogic);
+
+/** Click event listener for the Knowledge Game Image */
+$("#knowledgeGame").on("click", showKnowledge);
+/** Click event listener for the Knowledge Game Button */
+$("#knowledgeGameButton").on("click", showKnowledge);
+
+/** Click event listener for the Logic Game Section Home Button */
+$("#homeLogic").on("click", showHome);
+
+/** Click event listener for the Knowledge Game Section Home Button */
+$("#homeKnowledge").on("click", showHome);
+
+/** Click event listener for the Rules Section */
+$("#game-landing").on("click", toggleRules);
