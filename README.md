@@ -80,6 +80,7 @@ I used greenyellow as color on an opacized particles background mostly.
 3. JS - To have nice moving backgroun, game states.
 4. jQuery UI - Starting with the web app navigation, I'll use it for mostly everything in this progject.
 5. GIMP - To elaborate images.
+6. RapidAPI - [To retrieve 10 random words](https://rapidapi.com/st-s2DBxyBlu/api/a-randomizer-data-api)
 
 ## Credits
 
