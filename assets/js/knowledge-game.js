@@ -165,8 +165,9 @@ $(document).on("keypress", function(e) {
     // retrieve indexes for the correct character if there are
     let results = checkCharacterInWord(e.key);
     if (results.length === 0) {
-        // removing neutral class and adding failure one
+        // removing neutral class and adding failure one and calling the showHangman function
         $("#" + e.key).removeClass("keyboard-button").addClass("keyboard-button-fail");
+        showHangman();
     } else {
         //removing neutral class and adding success one
         $("#" + e.key).removeClass("keyboard-button").addClass("keyboard-button-success");
@@ -185,3 +186,38 @@ $(".keyboard-button").on("click", function(e) {
         jQuery.Event( 'keypress', { key: id } )
     );  
 });
+
+/** Function that check and update the current amount of mistakes and shows the relative part of the hanged man
+ *  until the seventh mistake at which it calls the keyboardFail function. At the second mistakes it shows the hint */
+const showHangman = () => {
+    if (hangman.score === 0) {
+        $(".hangman-head").show("fade", 500);
+    } else if (hangman.score === 1) {
+        $(".hangman-body").show("fade", 500);
+        $(".hint").show("fade", 500);
+    } else if (hangman.score === 2) {
+        $(".hangman-right-arm").show("fade", 500);
+    } else if (hangman.score === 3) {
+        $(".hangman-left-arm").show("fade", 500);
+    } else if (hangman.score === 4) {
+        $(".hangman-right-leg").show("fade", 500);
+    } else if (hangman.score === 5) {
+        $(".hangman-left-leg").show("fade", 500);
+    } else if (hangman.score === 6) {
+        $(".hangman-right-arm").hide("fade", 500);
+        $(".hangman-left-arm").hide("fade", 500);
+        $(".dead-hangman-right-arm").show("fade", 500);
+        $(".dead-hangman-left-arm").show("fade", 500);
+        keyboardFail();
+        let spans = $(".word-container span");
+        for (let span of spans) {
+            if (!$(span).hasClass("character-correct")) {
+                $(span).addClass("character-correct").show("fade");
+            }
+        }
+    }
+    hangman.score++;
+}
+
+/** functions that sets each keyboard button background color to red */
+const keyboardFail = () => $(".keyboard").removeClass("keyboard-button-success").removeClass("keyboard-button").addClass("keyboard-button-fail");
