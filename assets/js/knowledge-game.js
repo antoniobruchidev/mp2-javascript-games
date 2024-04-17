@@ -5,7 +5,31 @@ let hangman = {
     words: [],
     definitions: {},
     i: 0,
+    correctInARow: 0,
 };
+
+// defining timers
+let startsInTimerId;
+let gameTimerId;
+let gameTimer = 0;
+
+/** gameTimer */
+const oneSecond = () => gameTimer++
+
+/** Timer that shows 10 seconds to the start of a new game */
+const startsInTimer = () => {
+    let startsIn = $("#starting-timer").html();
+    startsIn--;
+    $("#starting-timer").html(startsIn);
+    if(startsIn == 0) {
+        $("#knowledge-landing h2").text("Back to play");
+        $("#startin-timer").text("Back to play")
+        $("#game-landing").css("z-index", "-2");
+        $("#newKnowledge").trigger("click")
+        clearInterval(startsInTimerId);
+        gameTimerId = setInterval(oneSecond, 1000);
+    }
+}
 
 /** API url to retrieve 10 random words */
 const wordsUrl = 'https://a-randomizer-data-api.p.rapidapi.com/api/random/words?count=10';
@@ -52,8 +76,15 @@ const getDefinition = async (word) => {
         const response = await fetch(definitionUrl(word), definitionOptions);
         const result = await response.json();
         const { meaning } = result;
-        const { noun, verb, adjective, adverb } = meaning
+        const { noun, verb, adjective, adverb } = meaning;
         hangman.definitions[word] = { noun, verb, adjective, adverb };
+        // when trying to fetch the last definition start a timer
+        if (hangman.words[hangman.words.length - 1] === word && hangman.i == 0) {
+            $("#loader").hide("fade");
+            $("#knowledge-landing h2").text("Words and definitions loaded, starts in");
+            $("#starting-timer").text("10");
+            startsInTimerId = setInterval(startsInTimer, 1000);
+        }
     } catch (error) {
         console.error(error);
     }
@@ -67,7 +98,6 @@ const getDefinition = async (word) => {
 const setWords = (words) => {
     hangman.words = words;
     hangman.definitions = {};
-    hangman.i = 0;
     getDefinitions()
 }
 
@@ -76,6 +106,13 @@ const setWords = (words) => {
  */
 const getWords = async () => {
     try {
+        // if hangman.i is 0 show the loader to wait for the game state to be ready
+        if (hangman.i == 0) {
+            $("#game-landing").css("z-index", "4")
+            $("#logic-landing").hide();
+            $("#loader").show();
+            $("#knowledge-landing").show()
+        };
         const response = await fetch(wordsUrl, wordsOptions);
         const result = await response.json();
         setWords(result);
@@ -189,6 +226,7 @@ $(document).on("keypress", function(e) {
         // check if the word has being guessed 
         if(checkIfFinished()) {
             keyboardSuccess();
+            hangman.correctInARow++;
         }
     }
 });
@@ -223,6 +261,8 @@ const showHangman = () => {
         $(".dead-hangman-right-arm").show("fade", 500);
         $(".dead-hangman-left-arm").show("fade", 500);
         keyboardFail();
+        clearInterval(gameTimerId);
+        hangman.correctInARow = 0;
         let spans = $(".word-container span");
         for (let span of spans) {
             if (!$(span).hasClass("character-correct")) {

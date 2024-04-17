@@ -445,7 +445,7 @@ h1 {
 
 /*------------------------StartsHidden---------*/
 
-#logicGamePage, #knowledgeGamePage, .loader {
+#logicGamePage, #knowledgeGamePage {
     display: none;
 }
 
