@@ -19,13 +19,24 @@ const wordsOptions = {
 };
 
 /**
- * @returns {array} result - 10 random words
+ * Setter function for the array of words in the hangman object.
+ * It sets also hangman.definitions to an empty object and resets the index at 0
+ * @param {Array} words - 10 random words
+ */
+const setWords = (words) => {
+    hangman.words = words;
+    hangman.definitions = { };
+    hangman.i = 0;
+}
+
+/**
+ * @returns {array} 10 random words
  */
 const getWords = async () => {
     try {
         const response = await fetch(wordsUrl, wordsOptions);
         const result = await response.json();
-        return result;
+        setWords(result);
     } catch (error) {
         console.error(error);
     }   
