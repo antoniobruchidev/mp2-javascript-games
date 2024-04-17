@@ -45,6 +45,7 @@ const showKnowledge = () => {
     $("#game-landing").css("z-index", 4);
     $("#logic-landing").hide();
     $("#knowledge-landing").show();
+    getWords();
 }
 
 /** Show the logic game page */

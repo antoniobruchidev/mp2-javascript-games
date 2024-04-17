@@ -32,7 +32,7 @@ const definitionOptions = {
 };
 
 /**
- * Function that iterates through the hangman.words array and call the getDefinition function for every word via a setTimeout so it doen't make too many calls in a second
+ * Function that iterates through the hangman.words array and call the getDefinition function for every word via a setTimeout so it doesn't make too many calls in a second
  */
 const getDefinitions = () => {
     let words = hangman.words;
@@ -61,13 +61,14 @@ const getDefinition = async (word) => {
 
 /**
  * Setter function for the array of words in the hangman object.
- * It sets also hangman.definitions to an empty object and resets the index at 0
+ * It sets also hangman.definitions to an empty object and resets the index at 0. Finally it calls getDefinitions function
  * @param {Array} words - 10 random words
  */
 const setWords = (words) => {
     hangman.words = words;
     hangman.definitions = {};
     hangman.i = 0;
+    getDefinitions()
 }
 
 /**
