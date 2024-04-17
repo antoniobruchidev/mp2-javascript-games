@@ -107,6 +107,15 @@ const createWordFields = () => {
     let wordCharacterFields = "";
     let word = hangman.words[hangman.i];
     let characters = [...word];
+    createHint(word);
+    hangman.i++;
+    // when it's creating the hint for the last word it'll fetch new words
+    if (hangman.i == hangman.words.length) {
+        getWords();
+        setTimeout(function (){
+            hangman.i = 0;
+        },5000);
+    }
     for (let character of characters) { 
         wordCharacterFields += `
         <div class="word-character">
@@ -115,8 +124,6 @@ const createWordFields = () => {
         `
     }
     $("#word-container").append(wordCharacterFields);
-    createHint(word);
-    hangman.i++;
 }
 
 /**
