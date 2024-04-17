@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Games by antoniobruchidev</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -279,45 +280,10 @@
     <canvas class="background"></canvas><!-- Particles.js Background ----->
 
     <!-------------------------- Scripts --------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
-    <script>
-        window.onload = function () {
-            Particles.init({
-                // normal options
-                selector: '.background',
-                maxParticles: 250,
-                color: '#ADFF2F',
-                connectParticles: true,
-                // options for breakpoints
-                responsive: [
-                    {
-                        breakpoint: 1280,
-                        options: {
-                            maxParticles: 200,
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        options: {
-                            maxParticles: 150,
-                        }
-                    },
-                    {
-                        breakpoint: 450,
-                        options: {
-                            maxParticles: 65,
-                        }
-                    },
-                    {
-                        breakpoint: 360,
-                        options: {
-                            maxParticles: 40,
-                        }
-                    }
-                ]
-            });
-        }
-    </script>
+    <script src="./assets/js/index.js"></script>
     <!-------------------------- Scrpits End ----------------------------->
 </body>
 
