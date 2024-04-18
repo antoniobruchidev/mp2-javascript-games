@@ -76,8 +76,13 @@ const setSquare = (square) => {
  */
 const changePosition = (square, inPosition) => {
     userPositions[square].inPosition = inPosition;
-    userPositions[square].top = positions[inPosition].top;
-    userPositions[square].left = positions[inPosition].left;
+    if (window.innerWidth > 360){
+        userPositions[square].top = positions[inPosition].top;
+        userPositions[square].left = positions[inPosition].left;
+    } else {
+        userPositions[square].top = verySmallDevicePositions[inPosition].top;
+        userPositions[square].left = verySmallDevicePositions[inPosition].left;
+    }
     setSquare(square);
 }
 
