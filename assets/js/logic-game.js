@@ -125,5 +125,65 @@ const newGame = () => {
     $(".square-disabled").removeClass("square-disabled").addClass("square-enabled");
 }
 
+/**
+ * 
+ * @returns array containing the positions acceptable by the empty square
+ */
+const movableSquareAtPosition = () => {
+    let emptyPosition = userPositions.empty.inPosition;
+    switch (emptyPosition) {
+        case "one":
+            accepted = ["two", "five"];
+            break;
+        case "two":
+            accepted = ["one", "three", "six"];
+            break;
+        case "three":
+            accepted = ["two", "four", "seven"];
+            break;
+        case "four":
+            accepted = ["three", "eight"];
+            break;
+        case "five":
+            accepted = ["one", "six", "nine"];
+            break;
+        case "six":
+            accepted = ["two", "seven", "five", "ten"];
+            break;
+        case "seven":
+            accepted = ["three", "eight", "six", "eleven"];
+            break;
+        case "eight":
+            accepted = ["four", "seven", "twelve"];
+            break;
+        case "nine":
+            accepted = ["five", "ten", "thirteen"];
+            break;
+        case "ten":
+            accepted = ["six", "eleven", "nine", "fourteen"];
+            break;
+        case "eleven":
+            accepted = ["seven", "twelve", "ten", "fifteen"];
+            break;
+        case "twelve":
+            accepted = ["eight", "eleven", "empty"];
+            break;
+        case "thirteen":
+            accepted = ["nine", "fourteen"];
+            break;
+        case "fourteen":
+            accepted = ["ten", "thirteen", "fifteen"];
+            break;
+        case "fifteen":
+            accepted = ["eleven", "fourteen", "empty"];
+            break;
+        case "empty":
+            accepted = ["twelve", "fifteen"];
+            break;
+
+    }
+    return accepted;
+}
+
 // click event listener that call for a new game
 $("#newLogic").on("click", newGame);
