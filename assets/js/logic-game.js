@@ -60,3 +60,25 @@ const userPositions = {
     score: { moves: 0, timer: 0, timerId: null },
     finished: false,
 }
+
+/**
+ * Function that shows the square in the position the user moved it
+ * @param {string} square - the id of a square 
+ */
+const setSquare = (square) => {
+    $("#" + square).css("top", userPositions[square].top).css("left", userPositions[square].left);
+}
+
+/**
+ * Function that save in the game state the position in which the user wants to move the square and call the function that sets it.
+ * @param {string} square - the id of the square
+ * @param {number} top - the css position in which it's going to be set
+ * @param {number} left - the css position in which it's going to be set
+ * @param {string} inPosition - the backlight square as in "backlight-{inPosition} which in which it will be dropped
+ */
+const changePosition = (square, top, left, inPosition) => {
+    userPositions[square].inPosition = inPosition;
+    userPositions[square].top = top;
+    userPositions[square].left = left;
+    setSquare(square);
+}
