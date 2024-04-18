@@ -254,11 +254,16 @@ const waitDrag = () => {
             let id = this.id;
             console.log(id);
             let squareAt = userPositions[id].inPosition;
+            $("#backlight-" + squareAt).css("background-color", "transparent");
             let empty = userPositions.empty.inPosition;
             userPositions.current.square = id;
             userPositions.current.squareAt = squareAt;
             userPositions.current.empty = empty;
-        }        
+        },
+        stop: function () {
+            let squareAt = userPositions.current.squareAt;
+            $("#backlight-" + squareAt).css("background-color", "white");
+        }
     });
 }
 
