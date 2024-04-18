@@ -1,0 +1,62 @@
+// Defining the css positions of the droppable backlight squares and
+const positions = {
+    one: { top: 2, left: 2 },
+    two: { top: 2, left: 92 },
+    three: { top: 2, left: 182 },
+    four: { top: 2, left: 272, },
+    five: { top: 92, left: 2 },
+    six: { top: 92, left: 92 },
+    seven: { top: 92, left: 182 },
+    eight: { top: 92, left: 272 },
+    nine: { top: 182, left: 2 },
+    ten: { top: 182, left: 92 },
+    eleven: { top: 182, left: 182 },
+    twelve: { top: 182, left: 272 },
+    thirteen: { top: 272, left: 2 },
+    fourteen: { top: 272, left: 92 },
+    fifteen: { top: 272, left: 182, },
+    empty: { top: 272, left: 272 },
+}
+
+// Defining the css position of droppable backlight squares on very small devices
+const verySmallDevicePositions = {
+    one: { top: 2, left: 2 },
+    two: { top: 2, left: 77 },
+    three: { top: 2, left: 152 },
+    four: { top: 2, left: 227, },
+    five: { top: 77, left: 2 },
+    six: { top: 77, left: 77 },
+    seven: { top: 77, left: 152 },
+    eight: { top: 77, left: 227 },
+    nine: { top: 152, left: 2 },
+    ten: { top: 152, left: 77 },
+    eleven: { top: 152, left: 152 },
+    twelve: { top: 152, left: 227 },
+    thirteen: { top: 227, left: 2 },
+    fourteen: { top: 227, left: 77 },
+    fifteen: { top: 227, left: 152, },
+    empty: { top: 227, left: 227 },
+}
+
+// Defining the in game positions of the draggable squares
+const userPositions = {
+    one: { top: 2, left: 2, inPosition: "one" },
+    two: { top: 2, left: 92, inPosition: "two" },
+    three: { top: 2, left: 182, inPosition: "three" },
+    four: { top: 2, left: 272, inPosition: "four" },
+    five: { top: 92, left: 2, inPosition: "five" },
+    six: { top: 92, left: 92, inPosition: "six" },
+    seven: { top: 92, left: 182, inPosition: "seven" },
+    eight: { top: 92, left: 272, inPosition: "eight" },
+    nine: { top: 182, left: 2, inPosition: "nine" },
+    ten: { top: 182, left: 92, inPosition: "ten" },
+    eleven: { top: 182, left: 182, inPosition: "eleven" },
+    twelve: { top: 182, left: 272, inPosition: "twelve" },
+    thirteen: { top: 272, left: 2, inPosition: "thirteen" },
+    fourteen: { top: 272, left: 92, inPosition: "fourteen" },
+    fifteen: { top: 272, left: 182, inPosition: "fifteen" },
+    empty: { top: 272, left: 272, inPosition: "empty", acceptableSquares: [] },
+    current: { square: null, squareAt: null, empty: null, oldAcceptables: [] },
+    score: { moves: 0, timer: 0, timerId: null },
+    finished: false,
+}
