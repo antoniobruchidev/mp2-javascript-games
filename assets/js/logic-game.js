@@ -72,13 +72,37 @@ const setSquare = (square) => {
 /**
  * Function that save in the game state the position in which the user wants to move the square and call the function that sets it.
  * @param {string} square - the id of the square
- * @param {number} top - the css position in which it's going to be set
- * @param {number} left - the css position in which it's going to be set
  * @param {string} inPosition - the backlight square as in "backlight-{inPosition} which in which it will be dropped
  */
-const changePosition = (square, top, left, inPosition) => {
+const changePosition = (square, inPosition) => {
     userPositions[square].inPosition = inPosition;
-    userPositions[square].top = top;
-    userPositions[square].left = left;
+    userPositions[square].top = positions[inPosition].top;
+    userPositions[square].left = positions[inPosition].left;
     setSquare(square);
+}
+
+/**
+ * 
+ * @returns array of objects containing the id of a square and its position
+ */
+const scrambleSquares = () => {
+    // defining two array with the keys of position. one will represent a square and the other the position it will be placed
+    let squareToScramble = Object.keys(positions);
+    let keys = Object.keys(positions);
+    // array to be populated
+    let scrambledSquares = [];
+    // while loop to be executed until the array is fully populated
+    while (scrambledSquares.length < 16) {
+        // creating a random number relative to the lenght of the array representing the squares
+        let scrambledSquare = Math.floor(Math.random() * (squareToScramble.length - 1));
+        // creating an object with the randomized id of the square and the position contained in the array starting at index 0 of the not yet populated array at the first cycle
+        let squareIdPosition = { id: squareToScramble[scrambledSquare], inPosition: keys[scrambledSquares.length]}
+        // populating the array
+        scrambledSquares.push(squareIdPosition);
+        // deleting the square from the array of squares
+        squareToScramble = squareToScramble.filter(function (square) {
+            return square !== squareToScramble[scrambledSquare];
+        });
+    }
+    return scrambledSquares;
 }
