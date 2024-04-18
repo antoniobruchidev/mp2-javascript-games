@@ -234,10 +234,8 @@ const waitUserMove = () => {
         // adding the class acceptable
         $("#" + atPosition).addClass("acceptable");
     }
-    // saving the set of square for later
-    userPositions.empty.acceptableSquares = acceptableSquares;
-
     waitDrag();
+    enableDraggables();
 }
 
 /** function that launch the jquery ui draggable plugin */
@@ -287,7 +285,8 @@ const waitDrop = () => {
             $("#backlight-" + oldSquarePosition).css("background-color", "transparent");
             changePosition(square, oldEmptyPosition);
             changePosition("empty", oldSquarePosition);
-            backlightOff();
+            resetWidget();
+            checkGamePlay();
         }
     });
 }
@@ -299,6 +298,47 @@ const backlightOff = () => {
         $("#backlight-" + squareBacklight).css("background-color", "transparent");
     }
 }
+
+/** Function that check if the game is finished */
+const checkGamePlay = () => {
+    // if positions from three until empty are all correct it's a win
+    if ((userPositions.three.inPosition === "three") &&
+        (userPositions.four.inPosition === "four") &&
+        (userPositions.five.inPosition === "five") &&
+        (userPositions.six.inPosition === "six") &&
+        (userPositions.seven.inPosition === "seven") &&
+        (userPositions.eight.inPosition === "eight") &&
+        (userPositions.nine.inPosition === "nine") &&
+        (userPositions.ten.inPosition === "ten") &&
+        (userPositions.eleven.inPosition === "eleven") &&
+        (userPositions.twelve.inPosition === "twelve") &&
+        (userPositions.thirteen.inPosition === "thirteen") &&
+        (userPositions.fourteen.inPosition === "fourteen") &&
+        (userPositions.fifteen.inPosition === "fifteen") &&
+        (userPositions.empty.inPosition === "empty")
+    ) { // styling the game-area to provide the user a nice response
+        $("#logic-game-area").removeClass("lga-gameplay").addClass("lga-success");
+        $(".square").removeClass("square-enabled").addClass("square-disabled");
+        userPositions.finished = true;
+    } else { // else wait for a new move
+        waitUserMove();
+    }
+}
+
+/** function that resets the widget */
+const resetWidget = () => {
+    resetDraggables();
+    $(".acceptable").removeClass("acceptable");
+    $(".square-backlight").css("background-color", "transparent");
+}
+
+/** Function that disable the draggables */
+const resetDraggables = () => {
+    $(".acceptable").draggable("disable");    
+}
+
+/** function that enable the draggables */
+const enableDraggables = () => $(".acceptable").draggable("enable");
 
 // click event listener that call for a new game
 $("#newLogic").on("click", newGame);
