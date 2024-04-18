@@ -182,7 +182,18 @@ const movableSquareAtPosition = () => {
             break;
 
     }
+    backlightOn(accepted)
     return accepted;
+}
+
+/**
+ * Function that turn on the backlight for the relative position
+ * @param {array} squareBacklights - array containing the position next to the empty square 
+ */
+const backlightOn = (squareBacklights) => {
+    for (let squareBacklight of squareBacklights) {
+        $("#backlight-" + squareBacklight).css("background-color", "white");
+    }
 }
 
 // click event listener that call for a new game

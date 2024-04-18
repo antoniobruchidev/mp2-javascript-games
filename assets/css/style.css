@@ -165,8 +165,7 @@ h1 {
 
 .square-enabled {
     border: 1px solid yellow;
-    background-color: darkgreen;
-    float: left;
+    background-color: rgba(0, 150, 0, 0.9);
 }
 
 .square-disabled {
@@ -261,10 +260,10 @@ h1 {
 }
 
 .square span {
-    color: greenyellow;
+    color: yellow;
     font-family: "Workbench", sans-serif;
     font-size: 36px;
-    text-shadow: 5px 2px 4px green;
+    text-shadow: 5px 2px 4px darkgreen;
     width: 100%;
     height: 86px;
     margin: 0 auto;
