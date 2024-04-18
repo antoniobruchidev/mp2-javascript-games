@@ -73,18 +73,25 @@ const getDefinitions = () => {
  */
 const getDefinition = async (word) => {
     try {
-        const response = await fetch(definitionUrl(word), definitionOptions);
-        const result = await response.json();
-        const { meaning } = result;
-        const { noun, verb, adjective, adverb } = meaning;
-        hangman.definitions[word] = { noun, verb, adjective, adverb };
-        // when trying to fetch the last definition start a timer
-        if (hangman.words[hangman.words.length - 1] === word && hangman.i == 0) {
+        // when trying to fetch the last definition start a timer but only when you enter the game.
+        if (hangman.words[hangman.words.length - 1] === word && hangman.i === 0) {
             $("#loader").hide("fade");
             $("#knowledge-landing h2").text("Words and definitions loaded, starts in");
             $("#starting-timer").text("10");
             startsInTimerId = setInterval(startsInTimer, 1000);
         }
+        const response = await fetch(definitionUrl(word), definitionOptions);
+        const result = await response.json();
+        // elaborating data;
+        const { meaning } = result;
+        const { noun, verb, adjective, adverb } = meaning;
+        // setting definitions accordingly
+        hangman.definitions[word] = { noun, verb, adjective, adverb };
+        // after fetching the last definition but only when playing with the last word in hangamn.words array
+        if (hangman.words[hangman.words.length - 1] === word && hangman.i === 10) {
+            hangman.i = 0;
+        }
+
     } catch (error) {
         console.error(error);
     }
@@ -127,7 +134,6 @@ const getWords = async () => {
  */
 const createHint = (word) => {
     let definitions = hangman.definitions;
-    console.log(definitions, word)
     if (definitions[word].noun !== "") {
         let definition = definitions[word].noun.slice(5);
         let endDefinition = definition.indexOf("(nou)");
@@ -149,9 +155,6 @@ const createWordFields = () => {
     // when it's creating the hint for the last word it'll fetch new words
     if (hangman.i == hangman.words.length) {
         getWords();
-        setTimeout(function (){
-            hangman.i = 0;
-        },5000);
     }
     for (let character of characters) { 
         wordCharacterFields += `
@@ -286,7 +289,6 @@ const checkIfFinished = () => {
     let spans = $(".word-container span");
     for (let span of spans) {
         if (!$(span).hasClass("character-correct")) {
-            console.log("has not correct character", span)
             return false;
         }
     }
