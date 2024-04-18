@@ -250,6 +250,8 @@ const waitDrag = () => {
         snapMode: "inner",
         snapTolerance: 20,
         start: function () {
+            // launching the droppable plugin
+            waitDrop();
             // saving variables in the game state
             let id = this.id;
             console.log(id);
@@ -262,9 +264,40 @@ const waitDrag = () => {
         },
         stop: function () {
             let squareAt = userPositions.current.squareAt;
-            $("#backlight-" + squareAt).css("background-color", "white");
+            let square = userPositions.current.square;
+            let position = $("#" + square).position();
+            if (position.top !== userPositions[square].top && position.left !== userPositions[square].left){
+            $("#backlight-" + squareAt).css("background-color", "white")}
         }
     });
+}
+
+ /** Function that starts the droppable plugin */
+const waitDrop = () => {
+    $("#empty").droppable({
+        // plugin settings
+        accept: ".acceptable",
+        tolerance: "intersect",
+        drop: function (event, ui,) {
+            // retrieving data saved at the drg start
+            let square = userPositions.current.square;
+            let oldSquarePosition = userPositions.current.squareAt;
+            let oldEmptyPosition = userPositions.current.empty;
+            // calling the changePosition function to change the square positions
+            $("#backlight-" + oldSquarePosition).css("background-color", "transparent");
+            changePosition(square, oldEmptyPosition);
+            changePosition("empty", oldSquarePosition);
+            backlightOff();
+        }
+    });
+}
+
+/** Function that turn off the backlight */
+const backlightOff = () => {
+    let squareBacklights = userPositions.current.oldAcceptables;
+    for (let squareBacklight of squareBacklights) {
+        $("#backlight-" + squareBacklight).css("background-color", "transparent");
+    }
 }
 
 // click event listener that call for a new game
