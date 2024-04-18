@@ -148,6 +148,10 @@ h1 {
     padding: 0;
 }
 
+.lga-gameplay {
+    background-color: transparent;
+}
+
 .lga-success {
     background-color: yellowgreen;
 }
@@ -158,6 +162,13 @@ h1 {
     position: absolute;
     z-index: 3;
 }
+
+.square-enabled {
+    border: 1px solid yellow;
+    background-color: darkgreen;
+    float: left;
+}
+
 .square-disabled {
     border: 1px solid greenyellow;
     background-color: green;
@@ -245,7 +256,7 @@ h1 {
 
 #empty {
     border: 1px dashed white;
-    background-color: green;
+    background-color: transparent;
     z-index: 2
 }
 

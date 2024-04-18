@@ -111,3 +111,19 @@ const scrambleSquares = () => {
     }
     return scrambledSquares;
 }
+
+/** Function that starts a new game */
+const newGame = () => {
+    // retrieving a set of randomized squares to set ip position
+    let scrambledSquares = scrambleSquares();
+    for ( let scrambledSquare of scrambledSquares) {
+        // setting the position of each square
+        changePosition(scrambledSquare.id,scrambledSquare.inPosition);
+    }
+    // changing class to game area and the squares
+    $("#logic-game-area").removeClass("lga-success").addClass("lga-gameplay");
+    $(".square-disabled").removeClass("square-disabled").addClass("square-enabled");
+}
+
+// click event listener that call for a new game
+$("#newLogic").on("click", newGame);
