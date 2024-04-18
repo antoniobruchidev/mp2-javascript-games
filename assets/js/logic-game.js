@@ -196,5 +196,24 @@ const backlightOn = (squareBacklights) => {
     }
 }
 
+
+/**
+ * Function that retrieve the square at a given position
+ * @param {string} position 
+ * @returns string - id
+ */
+const getSquareAtPosition = (position) => {
+    let squares = Object.keys(userPositions);
+    let atPosition;
+    for (let square of squares) {
+        atPosition = userPositions[square].inPosition;
+        if (square !== undefined) {
+            if (position == atPosition) {
+                return square;
+            }
+        }
+    }
+}
+
 // click event listener that call for a new game
 $("#newLogic").on("click", newGame);
