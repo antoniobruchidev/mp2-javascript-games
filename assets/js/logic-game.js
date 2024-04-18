@@ -123,6 +123,7 @@ const newGame = () => {
     // changing class to game area and the squares
     $("#logic-game-area").removeClass("lga-success").addClass("lga-gameplay");
     $(".square-disabled").removeClass("square-disabled").addClass("square-enabled");
+    waitUserMove();
 }
 
 /**
@@ -203,16 +204,62 @@ const backlightOn = (squareBacklights) => {
  * @returns string - id
  */
 const getSquareAtPosition = (position) => {
+    // retrieving the set of squares
     let squares = Object.keys(userPositions);
     let atPosition;
     for (let square of squares) {
+        // checking for each square its position
         atPosition = userPositions[square].inPosition;
         if (square !== undefined) {
+            // if the position given is the same return the square
             if (position == atPosition) {
                 return square;
             }
         }
     }
+}
+
+/** Function that retrieve which squares are movable will be ultimately launching the draggable plugin */
+const waitUserMove = () => {
+    // retrieving the acceptable squares
+    let accepted = movableSquareAtPosition();
+    // saving them for later
+    userPositions.current.oldAcceptables = accepted;
+    // array to populate
+    let acceptableSquares = [];
+    // finding which squares are in an acceptable position
+    for (let i = 0; i < accepted.length; i++) {
+        let atPosition = getSquareAtPosition(accepted[i]);
+        acceptableSquares.push(atPosition);
+        // adding the class acceptable
+        $("#" + atPosition).addClass("acceptable");
+    }
+    // saving the set of square for later
+    userPositions.empty.acceptableSquares = acceptableSquares;
+
+    waitDrag();
+}
+
+/** function that launch the jquery ui draggable plugin */
+const waitDrag = () => {
+    $(".acceptable").draggable({
+        // settings for the plugin
+        handle: "span",
+        revert: "invalid",
+        snap: "#empty",
+        snapMode: "inner",
+        snapTolerance: 20,
+        start: function () {
+            // saving variables in the game state
+            let id = this.id;
+            console.log(id);
+            let squareAt = userPositions[id].inPosition;
+            let empty = userPositions.empty.inPosition;
+            userPositions.current.square = id;
+            userPositions.current.squareAt = squareAt;
+            userPositions.current.empty = empty;
+        }        
+    });
 }
 
 // click event listener that call for a new game
