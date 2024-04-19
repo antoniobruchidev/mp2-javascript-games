@@ -115,3 +115,40 @@ $("#homeKnowledge").on("click", showHome);
 
 /** Click event listener for the Rules Section */
 $("#game-landing").on("click", toggleRules);
+
+const mouseOverLogicChoice = () => {
+    $("#logicGameChoice").css("box-shadow", "0 0 10px 10px greenyellow").css("background-color", "black");
+    $("#knowledgeGameChoice").css("box-shadow", "none").css("background-color", "rgba(0, 0, 0, 0.7");
+}
+
+const mouseOverKnowledgeChoice = () => {
+    $("#knowledgeGameChoice").css("box-shadow", "0 0 10px 10px greenyellow").css("background-color", "black");
+    $("#logicGameChoice").css("box-shadow", "none").css("background-color", "rgba(0, 0, 0, 0.7");
+}
+
+$("#logicGameChoice").on("mouseenter", function(e) {
+    clearInterval(switchLightsTimerId);
+    mouseOverLogicChoice();
+});
+
+$("#knowledgeGameChoice").on("mouseenter", function(e) {
+    clearInterval(switchLightsTimerId);
+    mouseOverKnowledgeChoice();
+});
+
+const choicesBacklightsSwitch = () => {
+    let logicBoxShadow = $("#logicGameChoice").css("box-shadow");
+    logicBoxShadow === "none" ? mouseOverLogicChoice() : mouseOverKnowledgeChoice();
+}
+
+$("#logicGameChoice").css("box-shadow", "0 0 10px 10px greenyellow");
+
+let switchLightsTimerId = setInterval(function() {
+    choicesBacklightsSwitch();
+}, 1200);
+
+$(".game-choice").on("mouseleave", function() {
+    switchLightsTimerId = setInterval(function() {
+        choicesBacklightsSwitch();
+}, 1200)
+});

@@ -52,13 +52,12 @@ h1 {
 }
 
 .game-choice {
-    border: 2px solid greenyellow;
+    border: 2px solid rgb(173, 255, 47);
     border-radius: 10px;
     width: 540px;
     margin: 15px auto;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0 32px 0 rgba(173, 255, 47, 0.12);
     display: inline-block;
 }
 
