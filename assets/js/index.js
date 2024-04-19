@@ -148,6 +148,7 @@ let switchLightsTimerId = setInterval(function() {
 }, 1200);
 
 $(".game-choice").on("mouseleave", function() {
+    choicesBacklightsSwitch();
     switchLightsTimerId = setInterval(function() {
         choicesBacklightsSwitch();
 }, 1200)

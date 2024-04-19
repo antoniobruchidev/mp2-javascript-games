@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Workbench&display=swap');
 /*------------------------Particles------------*/
-
-html, body, section { 
-    height: 100%;
+html {
+    background-color: black;
 }
 
 .container {
@@ -47,8 +46,13 @@ h1 {
 /*------------------------HomeSection----------*/
 
 .main-navigation {
-    margin-top: 280px;
+    margin-top: 200px;
     display: flex;
+}
+
+.landing-heading {
+    color: greenyellow;
+    margin-top: 50px;
 }
 
 .game-choice {
