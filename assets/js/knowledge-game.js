@@ -18,15 +18,15 @@ const oneSecond = () => gameTimer++
 
 /** Timer that shows 10 seconds to the start of a new game */
 const startsInTimer = () => {
+    $(".rules-heading").show();
     let startsIn = $("#starting-timer").html();
     startsIn--;
     $("#starting-timer").html(startsIn);
     if(startsIn == 0) {
-        $("#knowledge-landing h2").text("Back to play");
-        $("#startin-timer").text("Back to play")
-        $("#game-landing").css("z-index", "-2");
-        $("#newKnowledge").trigger("click")
         clearInterval(startsInTimerId);
+        $(".loader").hide();
+        $("#game-landing").css("z-index", "-2");
+        $("#newKnowledge").trigger("click");
         gameTimerId = setInterval(oneSecond, 1000);
     }
 }
@@ -171,6 +171,8 @@ const createWordFields = () => {
  */
 $("#newKnowledge").on("click",function() {
     hangman.score = 0;
+    console.log(blinkingButtonTimerId);
+    clearInterval(blinkingButtonTimerId);
     resetWordFields();
     createWordFields();
     resetHangman();
@@ -229,6 +231,9 @@ $(document).on("keypress", function(e) {
         // check if the word has being guessed 
         if(checkIfFinished()) {
             keyboardSuccess();
+            blinkingButtonTimerId = setInterval(function() {
+                blinkingButton()
+            }, 2000)
             hangman.correctInARow++;
         }
     }
@@ -264,6 +269,7 @@ const showHangman = () => {
         $(".dead-hangman-right-arm").show("fade", 500);
         $(".dead-hangman-left-arm").show("fade", 500);
         keyboardFail();
+        blinkingButton()
         clearInterval(gameTimerId);
         hangman.correctInARow = 0;
         let spans = $(".word-container span");

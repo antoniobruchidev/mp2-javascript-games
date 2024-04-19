@@ -387,7 +387,10 @@ const resetDraggables = () => {
 const enableDraggables = () => $(".acceptable").draggable("enable");
 
 // click event listener that call for a new game
-$("#newLogic").on("click", newGame);
+$("#newLogic").on("click", function () {
+    clearInterval(blinkingButtonTimerId);
+    newGame();
+});
 
 /** function used to cheat during development, places all the squares in correct position */
 const cheat = () => {
