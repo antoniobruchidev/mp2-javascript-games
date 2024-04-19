@@ -114,6 +114,8 @@ const scrambleSquares = () => {
 
 /** Function that starts a new game */
 const newGame = () => {
+    // resetting the game scores in case the user has already played
+    resetScores();
     // retrieving a set of randomized squares to set ip position
     let scrambledSquares = scrambleSquares();
     for ( let scrambledSquare of scrambledSquares) {
@@ -124,6 +126,10 @@ const newGame = () => {
     $("#logic-game-area").removeClass("lga-success").addClass("lga-gameplay");
     $(".square-disabled").removeClass("square-disabled").addClass("square-enabled");
     waitUserMove();
+    // setting up a timer for the game state
+    userPositions.score.timerId = setInterval(timer, 1000);
+    $("#logic-heading").hide();
+    $("#logic-score").show();
 }
 
 /**
@@ -277,6 +283,9 @@ const waitDrop = () => {
         accept: ".acceptable",
         tolerance: "intersect",
         drop: function (event, ui,) {
+            // updating moves counter
+            userPositions.score.moves++;
+            $("#moves").html(userPositions.score.moves);
             // retrieving data saved at the drg start
             let square = userPositions.current.square;
             let oldSquarePosition = userPositions.current.squareAt;
@@ -325,6 +334,41 @@ const checkGamePlay = () => {
     }
 }
 
+
+/** Function that displays the user's score at the end of the game in format x minute/minutes and y second/seconds */
+const displayScore = () => {
+    let minutes = Math.floor(userPositions.score.timer / 60);
+    let minuteMinutes = minutes === 1 ? "minute" : "minutes";
+    let seconds = userPositions.score.timer % 60;
+    let secondSeconds = seconds === 1 ? "second" : "seconds";
+    let time = `${minutes} ${minuteMinutes} and ${seconds} ${secondSeconds}`
+    let paragraph = `Congratulations, it took you <span id="moves">${userPositions.score.moves}</span> moves in ${time}!`;
+    $(".moves-counter").html(paragraph);
+    $(".timer").hide();
+}
+
+/** Function that displays the ongoing timer */
+const timer = () => {
+    // retrieving the timerId to clear the interval when the game is finished
+    let timerId = userPositions.score.timerId;
+    userPositions.score.timer++;
+    $("#timer").html(userPositions.score.timer);
+    if (userPositions.finished) {
+        // stopping the timer, displaying the score and resetting the widget
+        clearInterval(timerId);
+        displayScore();
+        resetWidget();
+    }
+}
+/** function that resets the scores */
+const resetScores = () => {
+    $(".timer").show();
+    $("#timer").html("0");
+    $(".moves-counter").html('<p class="moves-counter">Your moves: <span id="moves">0</span></p>');
+    userPositions.score.timer = 0;
+    userPositions.finished = false;
+}
+
 /** function that resets the widget */
 const resetWidget = () => {
     resetDraggables();
@@ -342,3 +386,15 @@ const enableDraggables = () => $(".acceptable").draggable("enable");
 
 // click event listener that call for a new game
 $("#newLogic").on("click", newGame);
+
+/** function used to cheat during development, places all the squares in correct position */
+const cheat = () => {
+    let keys = Object.keys(positions);
+    for (let key of keys) {
+        if(key !== undefined){
+        changePosition(key,key);
+        userPositions[key].inPosition = key;
+        }
+    }
+    checkGamePlay();
+}

@@ -110,7 +110,7 @@ h1 {
 
 /*------------------------GeneralGameSection---*/
 
-.section-heading, .moves, .mistakes {
+.section-heading, .moves, .mistakes, .timer {
     color: greenyellow;
     font-family: "Open Sans", sans-serif;
     margin: 0 auto;
