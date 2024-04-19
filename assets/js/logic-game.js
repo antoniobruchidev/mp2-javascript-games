@@ -268,9 +268,7 @@ const waitDrag = () => {
         },
         stop: function () {
             let squareAt = userPositions.current.squareAt;
-            let square = userPositions.current.square;
-            let position = $("#" + square).position();
-            if (position.top !== userPositions[square].top && position.left !== userPositions[square].left){
+            if (getSquareAtPosition(squareAt) === this.id){
             $("#backlight-" + squareAt).css("background-color", "white")}
         }
     });
@@ -367,6 +365,10 @@ const resetScores = () => {
     $(".moves-counter").html('<p class="moves-counter">Your moves: <span id="moves">0</span></p>');
     userPositions.score.timer = 0;
     userPositions.finished = false;
+    // resetting the timer if not null the first time
+    if(userPositions.score.timerId !== null) {
+        clearInterval(userPositions.score.timerId);
+    }
 }
 
 /** function that resets the widget */

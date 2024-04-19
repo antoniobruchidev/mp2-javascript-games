@@ -126,12 +126,12 @@ const mouseOverKnowledgeChoice = () => {
     $("#logicGameChoice").css("box-shadow", "none").css("background-color", "rgba(0, 0, 0, 0.7");
 }
 
-$("#logicGameChoice").on("mouseenter", function(e) {
+$("#logicGameChoice").on("mouseenter", function() {
     clearInterval(switchLightsTimerId);
     mouseOverLogicChoice();
 });
 
-$("#knowledgeGameChoice").on("mouseenter", function(e) {
+$("#knowledgeGameChoice").on("mouseenter", function() {
     clearInterval(switchLightsTimerId);
     mouseOverKnowledgeChoice();
 });
