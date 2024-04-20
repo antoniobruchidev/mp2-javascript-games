@@ -104,31 +104,58 @@ As background I used [particle.js](https://github.com/marcbruederlin/particles.j
 #### Game choice
 
 The user has a choice of two different games.
+
 ![Game choice](assets/images/game-choice.png)
 
 #### Explanations
 
 The user is given explanations in both games
+
 ![Logic game explanation](assets/images/logic-explanation.png)
+
 ![Knowledge game explanation](assets/images/knowledge-explanation.png)
 
 #### Game buttons - New game - Rules - Home - changing color when hovering
 
 The user is signaled when he's hovering a button by changing the button style, 
+
 ![Buttons](assets/images/buttons.png)
+
 ![Hovered new game](assets/images/buttons-new-game-hover.png)
+
 ![Hovered rules](assets/images/buttons-rules-hover.png)
+
 ![Hovered home](assets/images/buttons-home-hover.png)
 
 #### Blinking new game button
 
 The user is signaled to click the new game button when a game is finished or not yet started
-[![Watch the video]()](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/eea0b728-85fa-4194-9aef-bd5cae402eb6)
-https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/9e82c25c-ea2f-4df5-90c7-6fc464f10be7
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/eea0b728-85fa-4194-9aef-bd5cae402eb6)
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/9e82c25c-ea2f-4df5-90c7-6fc464f10be7)
 
+#### Start a new game
 
+The user start a new game
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/cbb9dfab-efd9-4425-bb94-800e2c40e5c6)
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/15ef49fc-f606-4b8b-bd36-c7c2e89ed880)
+
+#### Fully interactive
+
+The user can fully interact with the widget, it signals the user which square are draggable, both by changing the cursor and highlighting the square.
+It fully adjust when the square is dropped and when it is reverted it turn the backlight on again.
+
+[Watch the solution](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/a968d996-f8f3-4c6a-ad74-40aba1cfdab7)
+
+The user has an accurate response when guesses a character by turning the background color to classics like green and red for success and fail.
+It disable the character guessed so the user cannot guess it again. Turns the displayed keyboard green or red at the end letting the new game button blink again.
+It also displays a hint at the second mistake.
+
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/355a07da-56d9-46db-bcf7-f20e78777de6)
 
 ## Testing
+
+### HTML
+
 
 ### Testing user stories
 
