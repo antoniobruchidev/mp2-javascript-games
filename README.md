@@ -117,7 +117,7 @@ The user is signaled when he's hovering a button by changing the button style,
 #### Blinking new game button
 
 The user is signaled to click the new game button when a game is finished or not yet started
-https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/eea0b728-85fa-4194-9aef-bd5cae402eb6
+[![Watch the video]()](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/eea0b728-85fa-4194-9aef-bd5cae402eb6)
 https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/9e82c25c-ea2f-4df5-90c7-6fc464f10be7
 
 
