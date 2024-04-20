@@ -62,18 +62,25 @@ const showLogic = () => {
     $("#game-landing").css("z-index", 4);
     $("#knowledge-landing").hide();
     $("#logic-landing").show();
+    resetPuzzle();
 }
 
 /** Shows the home page */
 const showHome = () => {
     clearInterval(blinkingButtonTimerId);
+    blinkingButtonTimerId = null;
+    clearInterval(userPositions.score.timerId);
+    userPositions.score.timerId = null;
     if (window.innerWidth <= 450) {
-      $("header").hide( "show", 250);
+        $("header").hide( "show", 250);
     }
     if ($("#logicGamePage").css("display") == "none") {
-      $("#knowledgeGamePage").hide( "fade", 250 );
+        $("#knowledgeGamePage").hide( "fade", 250 );
     } else {
-      $("#logicGamePage").hide( "fade", 250 );
+        $("#logic-game-area").removeClass("lga-gameplay").addClass("lga-success");
+        $(".square").removeClass("square-enabled").addClass("square-disabled");
+        $("#logicGamePage").hide( "fade", 250 );
+        resetScores();
     }
     $("#homePage").show( "fade", 250 );
     hangman.i = 0;
@@ -81,12 +88,12 @@ const showHome = () => {
 
 /** Toggles the rules page back in the stack */
 const toggleRules = () => {
-    if ($("#loader").css("display") === "none" && $("#knowledgeGamePage").css("display") === "block") {
-        // preventing the interval to start a new game
-        clearInterval(startsInTimerId);
-        blinkingButtonTimerId = setInterval(function(){
-            blinkingButton();
-        }, 2000);
+    if ($("#loader").css("display") === "none") {
+        if (blinkingButtonTimerId === null && checkIfFinished()) {
+            blinkingButtonTimerId = setInterval(function(){
+                blinkingButton();
+            }, 1500);
+        }
         $("#game-landing").css("z-index", "-2");
         $("#knowledge-landing h2").text("Back to play");
         setTimeout(function(){
@@ -95,7 +102,8 @@ const toggleRules = () => {
     }
     if ($("#logicGamePage").css("display") === "block") {
         $("#game-landing").css("z-index", "-2");
-        if(userPositions.score.timerId === null) {
+        if(userPositions.score.timerId === null && blinkingButtonTimerId === null) {
+            console.log("trigger")
             blinkingButtonTimerId = setInterval(function(){
                 blinkingButton();
             }, 2000);
@@ -126,15 +134,11 @@ $("#knowledgeRules").on("click", toggleKnowledgeRules);
 /** Click event listener for the Logic Game Rules Button */
 $("#logicRules").on("click", toggleLogicRules);
 
-/** Click event listener for the Logic Game Image */
-$("#logicGame").on("click", showLogic);
-/** Click event listener for the Logic Game Button */
-$("#logicGameButton").on("click", showLogic);
+/** Click event listener for the Logic Game Card */
+$("#logicGameChoice").on("click", showLogic);
 
-/** Click event listener for the Knowledge Game Image */
-$("#knowledgeGame").on("click", showKnowledge);
-/** Click event listener for the Knowledge Game Button */
-$("#knowledgeGameButton").on("click", showKnowledge);
+/** Click event listener for the Knowledge Game Card */
+$("#knowledgeGameChoice").on("click", showKnowledge);
 
 /** Click event listener for the Logic Game Section Home Button */
 $("#homeLogic").on("click", showHome);
@@ -186,25 +190,45 @@ $(".game-choice").on("mouseleave", function() {
 }, 1200)
 });
 
-$(".game-button").on("mouseenter", function() {
-    $(this).css("background-color", "greenyellow").css("border-color", "darkgreen").css("color", "darkgreen");
+$(".new-game-button").on("mouseenter", function(e) {
     clearInterval(blinkingButtonTimerId);
+    blinkingButtonTimerId = null;
+    backlightButton(e.target);
 })
 
-$(".game-button").on("mouseleave", function() {
-    $(this).css("background-color", "darkgreen").css("border-color", "greenyellow").css("color", "greenyellow");
-    blinkingButtonTimerId = setInterval(function() {
-        blinkingButton();
-    }, 1500)
+$(".new-game-button").on("mouseleave", function(e) {
+    backlightButtonOff(e.target);
+    setTimeout(() => {
+        if ((userPositions.score.timerId === null && $("#logicGamePage").css("display") !== "none")  || (checkIfFinished() && $("#knowledgeGamePage").css("display") !== "none")) {
+            blinkingButtonTimerId = setInterval(() => {
+                blinkingButton();
+            }, 1500)
+        }        
+    }, 750);
+
 })
 
-let blinkingButtonTimerId;
+$(".game-button").on("mouseenter", function(e) {
+    backlightButton(e.target)
+})
+
+
+$(".game-button").on("mouseleave", function(e) {
+    backlightButtonOff(e.target)
+})
+
+
+let blinkingButtonTimerId = null;
 
 /** function for a blinking button */
 const blinkingButton = () => {
     let button = $("#logicGamePage").css("display") === "block" ? "#newLogic" : "#newKnowledge";
-    $(button).trigger("mouseenter");
+    backlightButton(button)
     setTimeout(function(button) {
-        $(button).trigger("mouseleave");
+        backlightButtonOff(button)
     }, 750, button);
 }
+
+const backlightButton = (button) => $(button).css("background-color", "yellow").css("border-color", "#004800").css("color", "#004800");
+
+const backlightButtonOff = (button) => $(button).css("background-color", "#004800").css("border-color", "yellow").css("color", "yellow");

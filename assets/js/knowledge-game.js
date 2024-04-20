@@ -63,7 +63,7 @@ const getDefinitions = () => {
     for (let i = 0; i < words.length; i++) {
         setTimeout(function (words, i) {
             getDefinition(words[i]);
-        }, 1000, words, i);
+        }, 300, words, i);
     }
 }
 
@@ -147,6 +147,8 @@ const createHint = (word) => {
  * It calls the createHint function and finally change the words index for the next call
  */
 const createWordFields = () => {
+    clearInterval(blinkingButtonTimerId);
+    blinkingButtonTimerId = null;
     let wordCharacterFields = "";
     let word = hangman.words[hangman.i];
     let characters = [...word];
@@ -171,8 +173,8 @@ const createWordFields = () => {
  */
 $("#newKnowledge").on("click",function() {
     hangman.score = 0;
-    console.log(blinkingButtonTimerId);
     clearInterval(blinkingButtonTimerId);
+    blinkingButtonTimerId = null;
     resetWordFields();
     createWordFields();
     resetHangman();
@@ -233,7 +235,7 @@ $(document).on("keypress", function(e) {
             keyboardSuccess();
             blinkingButtonTimerId = setInterval(function() {
                 blinkingButton()
-            }, 2000)
+            }, 1500)
             hangman.correctInARow++;
         }
     }
@@ -269,7 +271,9 @@ const showHangman = () => {
         $(".dead-hangman-right-arm").show("fade", 500);
         $(".dead-hangman-left-arm").show("fade", 500);
         keyboardFail();
-        blinkingButton()
+        blinkingButtonTimerId = setInterval(function() {
+            blinkingButton()
+        }, 1500)
         clearInterval(gameTimerId);
         hangman.correctInARow = 0;
         let spans = $(".word-container span");

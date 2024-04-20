@@ -114,8 +114,13 @@ const scrambleSquares = () => {
 
 /** Function that starts a new game */
 const newGame = () => {
+    // clearing the blinking button interval and resetting the button style
+    clearInterval(blinkingButtonTimerId);
+    blinkingButtonTimerId = null;
+    $("#newLogic").css("background-color", "darkgreen").css("border-color", "greenyellow").css("color", "greenyellow")
     // resetting the game scores in case the user has already played
     resetScores();
+    resetWidget();
     // retrieving a set of randomized squares to set ip position
     let scrambledSquares = scrambleSquares();
     for ( let scrambledSquare of scrambledSquares) {
@@ -199,7 +204,7 @@ const movableSquareAtPosition = () => {
  */
 const backlightOn = (squareBacklights) => {
     for (let squareBacklight of squareBacklights) {
-        $("#backlight-" + squareBacklight).css("background-color", "white");
+        $("#backlight-" + squareBacklight).css("background-color", "#aaaaaa");
     }
 }
 
@@ -269,7 +274,7 @@ const waitDrag = () => {
         stop: function () {
             let squareAt = userPositions.current.squareAt;
             if (getSquareAtPosition(squareAt) === this.id){
-            $("#backlight-" + squareAt).css("background-color", "white")}
+            $("#backlight-" + squareAt).css("background-color", "#cccccc")}
         }
     });
 }
@@ -327,6 +332,9 @@ const checkGamePlay = () => {
         $("#logic-game-area").removeClass("lga-gameplay").addClass("lga-success");
         $(".square").removeClass("square-enabled").addClass("square-disabled");
         userPositions.finished = true;
+        blinkingButtonTimerId = setInterval(() => {
+            blinkingButton();
+        }, 1500);
     } else { // else wait for a new move
         waitUserMove();
     }
@@ -364,6 +372,7 @@ const resetScores = () => {
     $("#timer").html("0");
     $(".moves-counter").html('<p class="moves-counter">Your moves: <span id="moves">0</span></p>');
     userPositions.score.timer = 0;
+    userPositions.score.moves = 0;
     userPositions.finished = false;
     // resetting the timer if not null the first time
     if(userPositions.score.timerId !== null) {
@@ -388,12 +397,11 @@ const enableDraggables = () => $(".acceptable").draggable("enable");
 
 // click event listener that call for a new game
 $("#newLogic").on("click", function () {
-    clearInterval(blinkingButtonTimerId);
     newGame();
 });
 
-/** function used to cheat during development, places all the squares in correct position */
-const cheat = () => {
+/** reset the puzzle */
+const resetPuzzle = () => {
     let keys = Object.keys(positions);
     for (let key of keys) {
         if(key !== undefined){
@@ -401,5 +409,8 @@ const cheat = () => {
         userPositions[key].inPosition = key;
         }
     }
-    checkGamePlay();
+    clearInterval(userPositions.score.timerId);
+    userPositions.finished = true;
+    resetWidget();
+
 }
