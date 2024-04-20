@@ -1,5 +1,11 @@
 # Javascript GAMES by antoniobruchidev
 
+## Demo
+
+![jWebsite fully responsive](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/8c53a9d8-8d95-4329-a8a0-9c4be192bd42)
+
+[Live website](https://antoniobruchidev.github.io/mp2-javascript-games/)
+
 ## One logic game
 
 To win the game the user has to form the fibonacci sequence from top-left.
