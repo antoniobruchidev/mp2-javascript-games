@@ -164,6 +164,36 @@ The user can see his moves adding up and a timer showing
 
 ## Testing
 
+### Automated or manual testing
+
+Two completely different way to approach how to code. I used only manual testing as described later. But I'll try to briefly explain both of them.
+
+#### Automated testing
+
+First of all to do some automated testing a developer would need to setup jest as framework to write the test. After setting up the environment a developer would need to write a **failing test** and only after he should write **just enough** code to pass the test.
+Then it should **refactor** the code if in need and start the cycle again, in an almost endless loop of **red**, **green**, **refactor** which is typical of a **TDD** coding approach.
+I can't really speak for it, didn't have the pleasure to try it yet, it looks more tedious and long at the first approach but I hear that the time saved in later debugging overly repays it's slower start.
+
+#### Manual testing
+
+As opposed to the automated testing, with **BDD** is more user centric and it focus more on the system behaviour and the desired output.
+
+##### Feat: Requesting words and definitions
+
+When the user clicked the new game button it returned an error because I was trying to elaborate data that was not there yet
+
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/d7b3d5c5-b697-4e33-a7af-96256efbf48d)
+
+Solved adding a loader in the rules page preventing the user to ask for a new game until the app is already retrieving the definition of the last word
+
+##### Blinking button going rogue
+
+Blinking button was going rogue due the interval not being cleared during mouseenter event firing up another interval during mouseleave event
+
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/70e68c87-8e29-41ad-8a8b-5caee4dd5f3b)
+
+Solved by clearing the interval and resetting the variable containing the id to null for validation on when the interval can be launched again
+
 ### HTML
 
 [Nu HTML checker](https://validator.w3.org/nu/?doc=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F)
@@ -190,6 +220,8 @@ Javascript passes throught the JSLint extension for VSCode with only warnings
 - [As a user I want to fully understand the rules and how to play each game.](#explanations)
 - [As a user I want to understand that my actions are recognized and interpreted well.](#fully-interactive)
 - [As a user I want to be able to check my current score.](#score)
+
+
 
 ## Credits
 
