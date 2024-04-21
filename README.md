@@ -37,6 +37,8 @@ The application use external API to both get random words and their definition, 
       - [Structure](#structure)
       - [Skeleton](#skeleton)
         - [Wireframes](#wireframes)
+      - [Surface](#surface)
+      - 
 
 ## UX
 
@@ -161,6 +163,9 @@ It also displays a hint at the second mistake.
 The user can see his moves adding up and a timer showing
 
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/4499c6b6-77d0-4197-9aca-a4f82262f092)
+
+### Features left to implement
+- Save scores on local storage or in a backend
 
 ## Testing
 
