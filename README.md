@@ -152,14 +152,29 @@ It also displays a hint at the second mistake.
 
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/355a07da-56d9-46db-bcf7-f20e78777de6)
 
+#### Score
+
+The user can see his moves adding up and a timer showing
+[Watch the video]()
+
 ## Testing
 
 ### HTML
 
+[Nu HTML checker](https://validator.w3.org/nu/?doc=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F)
+
+### CSS
+
+### JS
+
+Javascript passes throught the JSLint extension for VSCode with only warnings
 
 ### Testing user stories
 
-
+- [As a user I want to be able to play different kind of games.](#game-choice)
+- [As a user I want to fully understand the rules and how to play each game.](#explanations)
+- [As a user I want to understand that my actions are recognized and interpreted well.](#fully-interactive)
+- [As a user I want to be able to check my current score.](#score)
 
 ## Credits
 

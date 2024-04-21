@@ -370,7 +370,7 @@ const timer = () => {
 const resetScores = () => {
     $(".timer").show();
     $("#timer").html("0");
-    $(".moves-counter").html('<p class="moves-counter">Your moves: <span id="moves">0</span></p>');
+    $(".moves-counter").html('Your moves: <span id="moves">0</span>');
     userPositions.score.timer = 0;
     userPositions.score.moves = 0;
     userPositions.finished = false;
@@ -409,7 +409,7 @@ const resetPuzzle = () => {
         userPositions[key].inPosition = key;
         }
     }
-    clearInterval(userPositions.score.timerId);
+   // clearInterval(userPositions.score.timerId);
     userPositions.finished = true;
     resetWidget();
 

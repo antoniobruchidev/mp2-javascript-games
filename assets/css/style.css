@@ -117,10 +117,12 @@ h1 {
 
 /*------------------------GeneralGameSection---*/
 
-.section-heading, .moves, .mistakes, .timer {
+.section-heading, .moves-counter, #timer {
     color: greenyellow;
     font-family: "Open Sans", sans-serif;
     margin: 0 auto;
+    font-size: 36px;
+    font-weight: 300;
 }
 
 .game-button {
@@ -134,12 +136,12 @@ h1 {
     display: none;
 }
 
-.title {
+.title, #timer {
     font-size: 36px;
     font-weight: 300;
 }
 
-.desc {
+.desc, .moves-counter {
     font-size: 18px;
     font-weight: 500;
 }
@@ -396,7 +398,7 @@ h1 {
     width: 20px;
     margin-right: 3px;
     border-bottom: 2px solid greenyellow;
-    padding: auto auto 0 auto
+    padding: 0;
 }
 
 .word-character span {
@@ -429,7 +431,7 @@ h1 {
 
 .keyboard-character {
     width: 56px;
-    height: 56x;
+    height: 56px;
     margin: 1px;
 }
 
@@ -498,7 +500,7 @@ h1 {
     margin: 0 auto;
     height: 20px;
     background:
-     linear-gradient(greenyellow 0 0) 0/0% no-repeat
+     linear-gradient(greenyellow 0 0 darkgreen) 0/0% no-repeat
      transparent;
     animation: l1 2s infinite linear;
   }
