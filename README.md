@@ -130,13 +130,17 @@ The user is signaled when he's hovering a button by changing the button style,
 #### Blinking new game button
 
 The user is signaled to click the new game button when a game is finished or not yet started
+
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/eea0b728-85fa-4194-9aef-bd5cae402eb6)
+
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/9e82c25c-ea2f-4df5-90c7-6fc464f10be7)
 
 #### Start a new game
 
 The user start a new game
+
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/cbb9dfab-efd9-4425-bb94-800e2c40e5c6)
+
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/15ef49fc-f606-4b8b-bd36-c7c2e89ed880)
 
 #### Fully interactive
@@ -155,6 +159,7 @@ It also displays a hint at the second mistake.
 #### Score
 
 The user can see his moves adding up and a timer showing
+
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/4499c6b6-77d0-4197-9aca-a4f82262f092)
 
 ## Testing
@@ -171,6 +176,7 @@ The user can see his moves adding up and a timer showing
 Javascript passes throught the JSLint extension for VSCode with only warnings
 
 ### Accessibility
+
 - [Contrast Main](https://webaim.org/resources/contrastchecker/?fcolor=ADFF2F&bcolor=000000)
 - [Contrast Buttons](https://webaim.org/resources/contrastchecker/?fcolor=FFFF00&bcolor=007800)
 - [Contrast Widget](https://webaim.org/resources/contrastchecker/?fcolor=FFFF00&bcolor=229A22)
