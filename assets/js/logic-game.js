@@ -263,7 +263,6 @@ const waitDrag = () => {
             waitDrop();
             // saving variables in the game state
             let id = this.id;
-            console.log(id);
             let squareAt = userPositions[id].inPosition;
             $("#backlight-" + squareAt).css("background-color", "transparent");
             let empty = userPositions.empty.inPosition;

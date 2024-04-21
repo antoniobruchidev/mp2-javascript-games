@@ -103,7 +103,6 @@ const toggleRules = () => {
     if ($("#logicGamePage").css("display") === "block") {
         $("#game-landing").css("z-index", "-2");
         if(userPositions.score.timerId === null && blinkingButtonTimerId === null) {
-            console.log("trigger")
             blinkingButtonTimerId = setInterval(function(){
                 blinkingButton();
             }, 2000);
