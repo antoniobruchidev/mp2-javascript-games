@@ -249,4 +249,5 @@ Javascript passes throught the JSLint extension for VSCode with only warnings
 
 1. [Moving background](https://github.com/marcbruederlin/particles.js)
 2. [Loading Bar](https://css-loaders.com/progress/)
+3. [Draggable plugin for touch-screen devices](https://codepen.io/buoge/pen/EpyGMX)
 
