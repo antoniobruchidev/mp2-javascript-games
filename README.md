@@ -194,6 +194,28 @@ Blinking button was going rogue due the interval not being cleared during mousee
 
 Solved by clearing the interval and resetting the variable containing the id to null for validation on when the interval can be launched again
 
+##### CSS not validating
+
+I don't know if it qualifies as a bug, anyway the validator would refuse to accept the 'rotate' property so I changed the hanged man from having different parts to be put togheter, to be only one but depending with class it has it changes the whole picture.
+App looks the same and it validate.
+
+##### Backlight of the draggable squares
+
+When clicked on the draggable square the square underneath in the stack that give the backlight effect become fully visible and quite ugly.
+
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/7dedafe0-02c6-42dd-aa07-ddf8378b6a10)
+
+Solved by adding this line 
+`if (getSquareAtPosition(squareAt) === this.id){ $("#backlight-" + squareAt).css("background-color", "#cccccc")}`
+in the start function of the draggable plugin.
+It created another problem, now when the user does not drop the square it does not turn the backlight on again
+
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/fe0cfb9c-792b-4025-a243-9ea362bab1dd)
+
+Solved by add this line
+`$("#backlight-" + oldSquarePosition).css("background-color", "transparent");`
+in the drop function of the droppable plugin.
+
 ### HTML
 
 [Nu HTML checker](https://validator.w3.org/nu/?doc=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F)
