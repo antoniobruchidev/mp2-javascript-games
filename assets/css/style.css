@@ -299,13 +299,7 @@ h1 {
     position: relative;
 }
 
-.hangman-head, 
-.hangman-right-arm, 
-.hangman-left-arm, 
-.hangman-body, 
-.hangman-right-leg, 
-.hangman-left-leg, 
-.hangman-dead {
+.hangman {
     position: absolute;
     width: 134px;
     height: 196px;
@@ -588,36 +582,8 @@ h1 {
         font-size: 24px;
     }
 
-    .hangman-head {
-        left: 151px;
-    }
-    
-    .hangman-right-arm {
-        left: 109px;
-    }
-    
-    .hangman-left-arm {
-        left: 167px;
-    }
-    
-    .dead-hangman-right-arm {
-        left: 109px;
-    }
-    
-    .dead-hangman-left-arm {
-        left: 167px;
-    }
-    
-    .hangman-body {
-        left: 141px;
-    }
-    
-    .hangman-right-leg {
-        left: 109px;
-    }
-    
-    .hangman-left-leg {
-        left: 167px;
+    .hangman {
+        left: 112px;
     }
     
     .hint {
@@ -696,36 +662,8 @@ h1 {
         font-size: 18px;
     }
 
-    .hangman-head {
-        left: 100px;
-    }
-    
-    .hangman-right-arm {
-        left: 58px;
-    }
-    
-    .hangman-left-arm {
-        left: 116px;
-    }
-    
-    .dead-hangman-right-arm {
-        left: 58px;
-    }
-    
-    .dead-hangman-left-arm {
-        left: 116px;
-    }
-    
-    .hangman-body {
-        left: 90px;
-    }
-    
-    .hangman-right-leg {
-        left: 58px;
-    }
-    
-    .hangman-left-leg {
-        left: 116px;
+    .hangman {
+        left: 61px;
     }
     
     .hint {
@@ -809,36 +747,8 @@ h1 {
         font-size: 16px;
     }
     
-    .hangman-head {
-        left: 77px;
-    }
-    
-    .hangman-right-arm {
-        left: 35px;
-    }
-    
-    .hangman-left-arm {
-        left: 93px;
-    }
-    
-    .dead-hangman-right-arm {
-        left: 35px;
-    }
-    
-    .dead-hangman-left-arm {
-        left: 93px;
-    }
-    
-    .hangman-body {
-        left: 67px;
-    }
-    
-    .hangman-right-leg {
-        left: 35px;
-    }
-    
-    .hangman-left-leg {
-        left: 93px;
+    .hangman {
+        left: 39px;
     }
     
     .hint {
@@ -934,36 +844,8 @@ h1 {
         font-size: 12px;
     }
     
-    .hangman-head {
-        left: 69px;
-    }
-    
-    .hangman-right-arm {
-        left: 27px;
-    }
-    
-    .hangman-left-arm {
-        left: 85px;
-    }
-    
-    .dead-hangman-right-arm {
-        left: 27px;
-    }
-    
-    .dead-hangman-left-arm {
-        left: 85px;
-    }
-    
-    .hangman-body {
-        left: 59px;
-    }
-    
-    .hangman-right-leg {
-        left: 27px;
-    }
-    
-    .hangman-left-leg {
-        left: 85px;
+    .hangman {
+        left: 30px;
     }
     
     .hint {
