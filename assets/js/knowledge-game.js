@@ -253,23 +253,20 @@ $(".keyboard-button").on("click", function(e) {
  *  until the seventh mistake at which it calls the keyboardFail function. At the second mistakes it shows the hint */
 const showHangman = () => {
     if (hangman.score === 0) {
-        $(".hangman-head").show("fade", 500);
+        $(".hangman").addClass("hangman-head");
     } else if (hangman.score === 1) {
-        $(".hangman-body").show("fade", 500);
+        $(".hangman").removeClass("hangman-head").addClass("hangman-body");
         $(".hint").show("fade", 500);
     } else if (hangman.score === 2) {
-        $(".hangman-right-arm").show("fade", 500);
+        $(".hangman").removeClass("hangman-body").addClass("hangman-right-arm");
     } else if (hangman.score === 3) {
-        $(".hangman-left-arm").show("fade", 500);
+        $(".hangman").removeClass("hangman-right-arm").addClass("hangman-left-arm");
     } else if (hangman.score === 4) {
-        $(".hangman-right-leg").show("fade", 500);
+        $(".hangman").removeClass("hangman-left-arm").addClass("hangman-right-leg");
     } else if (hangman.score === 5) {
-        $(".hangman-left-leg").show("fade", 500);
+        $(".hangman").removeClass("hangman-right-leg").addClass("hangman-left-leg");
     } else if (hangman.score === 6) {
-        $(".hangman-right-arm").hide("fade", 500);
-        $(".hangman-left-arm").hide("fade", 500);
-        $(".dead-hangman-right-arm").show("fade", 500);
-        $(".dead-hangman-left-arm").show("fade", 500);
+        $(".hangman").removeClass("hangman-left-leg").addClass("hangman-dead");
         keyboardFail();
         blinkingButtonTimerId = setInterval(function() {
             blinkingButton()
@@ -309,7 +306,11 @@ const checkIfFinished = () => {
 const resetKeyboard = () => $(".keyboard").removeClass("keyboard-button-fail").removeClass("keyboard-button-success").addClass("keyboard-button");
 
 /** function that resets the hanged man to the original state */
-const resetHangman = () => $(".hangman").hide();
+const resetHangman = () => {
+    $(".hangman").removeClass("hangman-dead").removeClass("hangman-left-leg").removeClass("hangman-right-leg");
+    $(".hangman").removeClass("hangman-left-arm").removeClass("hangman-right-arm").removeClass("hangman-body");
+    $(".hangman").removeClass("hangman-head");
+};
 
 /** function that resets the word's character fields */
 const resetWordFields = () => {

@@ -305,70 +305,52 @@ h1 {
 .hangman-body, 
 .hangman-right-leg, 
 .hangman-left-leg, 
-.dead-hangman-left-arm, 
-.dead-hangman-right-arm,
+.hangman-dead {
+    position: absolute;
+    width: 134px;
+    height: 196px;
+    left: 259px;
+    top: 76px;
+}
+
 .hint {
     position: absolute;
-    border-top: 2px solid greenyellow;
     display: none;
 }
 
 .hangman-head {
-    left: 299px;
-    top: 77px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid greenyellow;
+    background: url(../images/head.png);
+    background-size: 100% 100%;
 }
 
 .hangman-right-arm {
-    rotate: 45deg;
-    left: 256px;
-    top: 129px;
-    width: 80px;
+    background: url(../images/right-arm.png);
+    background-size: 100% 100%;
 }
 
 .hangman-left-arm {
-    rotate: -45deg;
-    left: 314px;
-    top: 129px;
-    width: 80px;
+    background: url(../images/left-arm.png);
+    background-size: 100% 100%;
 }
 
-.dead-hangman-right-arm {
-    rotate: 135deg;
-    left: 256px;
-    top: 185px;
-    width: 80px;
-}
-
-.dead-hangman-left-arm {
-    rotate: -135deg;
-    left: 314px;
-    top: 185px;
-    width: 80px;
+.hangman-dead {
+    background: url(../images/dead.png);
+    background-size: 100% 100%;
 }
 
 .hangman-body {
-    width: 75px;
-    rotate: 90deg;
-    left: 288px;
-    top: 167px;
+    background: url(../images/body.png);
+    background-size: 100% 100%;
 }
 
 .hangman-right-leg {
-    rotate: -45deg;
-    left: 256px;
-    top: 232px;
-    width: 80px;
+    background: url(../images/right-leg.png);
+    background-size: 100% 100%;
 }
 
 .hangman-left-leg {
-    rotate: 45deg;
-    left: 314px;
-    top: 232px;
-    width: 80px;
+    background: url(../images/left-leg.png);
+    background-size: 100% 100%;
 }
 
 .hint {
