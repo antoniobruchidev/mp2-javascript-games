@@ -470,18 +470,32 @@ h1 {
     font-family: "Open Sans", sans-serif;
 }
 
-.loader-bar {    
-    width: 150px;
+.loader {
+    display: flex;
+    align-items: center;
+}
+
+.loader-bar {
+    width: 180px;
+    height: 22px;
+    border-radius: 20px;
+    color: greenyellow;
+    border: 2px solid;
+    position: relative;
     margin: 0 auto;
-    height: 20px;
-    background:
-     linear-gradient(greenyellow 0 0 darkgreen) 0/0% no-repeat
-     transparent;
-    animation: l1 2s infinite linear;
-  }
-  @keyframes l1 {
-      100% {background-size:100%}
-  }
+}
+
+.loader-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: l6 2s infinite;
+}
+    @keyframes l6 {
+        100% {inset:0}
+}
 
 .explanation {
     margin: auto auto;

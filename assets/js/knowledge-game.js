@@ -24,7 +24,6 @@ const startsInTimer = () => {
     $("#starting-timer").html(startsIn);
     if(startsIn == 0) {
         clearInterval(startsInTimerId);
-        $(".loader").hide();
         $("#game-landing").css("z-index", "-2");
         $("#newKnowledge").trigger("click");
         gameTimerId = setInterval(oneSecond, 1000);
@@ -63,7 +62,7 @@ const getDefinitions = () => {
     for (let i = 0; i < words.length; i++) {
         setTimeout(function (words, i) {
             getDefinition(words[i]);
-        }, 300, words, i);
+        }, 2000, words, i);
     }
 }
 
