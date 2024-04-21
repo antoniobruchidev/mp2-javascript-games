@@ -155,7 +155,7 @@ It also displays a hint at the second mistake.
 #### Score
 
 The user can see his moves adding up and a timer showing
-[Watch the video]()
+[Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/4499c6b6-77d0-4197-9aca-a4f82262f092)
 
 ## Testing
 
@@ -164,6 +164,7 @@ The user can see his moves adding up and a timer showing
 [Nu HTML checker](https://validator.w3.org/nu/?doc=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F)
 
 ### CSS
+[![Valid CSS](https://jigsaw.w3.org/css-validator/images/vcss)](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ### JS
 
