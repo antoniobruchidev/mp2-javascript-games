@@ -62,7 +62,7 @@ const getDefinitions = () => {
     for (let i = 0; i < words.length; i++) {
         setTimeout(function (words, i) {
             getDefinition(words[i]);
-        }, 2000, words, i);
+        }, 500, words, i);
     }
 }
 
