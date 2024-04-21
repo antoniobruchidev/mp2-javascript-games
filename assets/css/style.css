@@ -27,10 +27,11 @@ html {
 }
 
 .home-button, .game-button {
-    border: 1px solid greenyellow;
+    border: 1px solid yellow;
     font-family: "Workbench", sans-serif;
-    color: greenyellow;
-    background-color: darkgreen;
+    color: yellow;
+    background-color: rgb(0, 72, 0);
+    font-weight: 700; 
 }
 
 /*------------------------Header---------------*/
@@ -121,8 +122,6 @@ h1 {
     color: greenyellow;
     font-family: "Open Sans", sans-serif;
     margin: 0 auto;
-    font-size: 36px;
-    font-weight: 300;
 }
 
 .game-button {

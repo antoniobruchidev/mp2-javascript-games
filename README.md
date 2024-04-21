@@ -169,6 +169,14 @@ The user can see his moves adding up and a timer showing
 
 Javascript passes throught the JSLint extension for VSCode with only warnings
 
+### Accessibility
+- [Contrast Main](https://webaim.org/resources/contrastchecker/?fcolor=ADFF2F&bcolor=000000)
+- [Contrast Buttons](https://webaim.org/resources/contrastchecker/?fcolor=FFFF00&bcolor=007800)
+- [Contrast Widget](https://webaim.org/resources/contrastchecker/?fcolor=FFFF00&bcolor=229A22)
+- [Contrast Keyboard](https://webaim.org/resources/contrastchecker/?fcolor=ADFF2F&bcolor=303030)
+- [Contrast Keyboard Fail](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=FF0000)
+- [Contrast Keyboard Success](https://webaim.org/resources/contrastchecker/?fcolor=ADFF2F&bcolor=008000)
+
 ### Testing user stories
 
 - [As a user I want to be able to play different kind of games.](#game-choice)
