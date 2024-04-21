@@ -26,20 +26,6 @@ Classic Hangman!
 
 The application use external API to both get random words and their definition, it will display the underscores for esch character present in the word and let the user guess the characters until is they are all guessed or game over after 7 mistakes.
 
-## Table of Contents
-
-- [Javascript GAMES by antoniobruchidev](#Javascript GAMES by antoniobruchidev)
-  - [Table of Contents](#table-of-contents)
-    - [UX](#ux)
-    - [User stories](#user-stories)
-      - [Strategy](#strategy)
-      - [Scope](#scope)
-      - [Structure](#structure)
-      - [Skeleton](#skeleton)
-        - [Wireframes](#wireframes)
-      - [Surface](#surface)
-      - 
-
 ## UX
 
 The website targets people wanting to relax playing some games.
@@ -217,7 +203,7 @@ It created another problem, now when the user does not drop the square it does n
 
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/fe0cfb9c-792b-4025-a243-9ea362bab1dd)
 
-Solved by add this line
+Solved by adding this line
 `$("#backlight-" + oldSquarePosition).css("background-color", "transparent");`
 in the drop function of the droppable plugin.
 
@@ -232,7 +218,7 @@ in the drop function of the droppable plugin.
 
 Javascript passes throught the JSLint extension for VSCode with only warnings
 
-### Accessibility
+### Color checker
 
 - [Contrast Main](https://webaim.org/resources/contrastchecker/?fcolor=ADFF2F&bcolor=000000)
 - [Contrast Buttons](https://webaim.org/resources/contrastchecker/?fcolor=FFFF00&bcolor=007800)
@@ -248,7 +234,9 @@ Javascript passes throught the JSLint extension for VSCode with only warnings
 - [As a user I want to understand that my actions are recognized and interpreted well.](#fully-interactive)
 - [As a user I want to be able to check my current score.](#score)
 
+## Deployment
 
+The project is deployed on github pages at https://antoniobruchidev.github.io/mp2-javascript-games/
 
 ## Credits
 
@@ -256,3 +244,6 @@ Javascript passes throught the JSLint extension for VSCode with only warnings
 2. [Loading Bar](https://css-loaders.com/progress/)
 3. [Draggable plugin for touch-screen devices](https://codepen.io/buoge/pen/EpyGMX)
 
+## Acknowledgemnts
+
+My Mentor Medale Oluwafemi for his patience and invaluable support
