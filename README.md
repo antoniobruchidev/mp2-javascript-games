@@ -105,7 +105,7 @@ The user is given explanations in both games
 
 #### Game buttons - New game - Rules - Home - changing color when hovering
 
-The user is signaled when he's hovering a button by changing the button style, 
+The user is signaled when he's hovering a button by changing the button style.
 
 ![Buttons](assets/images/buttons.png)
 
@@ -117,7 +117,7 @@ The user is signaled when he's hovering a button by changing the button style,
 
 #### Blinking new game button
 
-The user is signaled to click the new game button when a game is finished or not yet started
+The user is signaled to click the new game button when a game is finished or not yet started.
 
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/eea0b728-85fa-4194-9aef-bd5cae402eb6)
 
@@ -151,6 +151,7 @@ The user can see his moves adding up and a timer showing
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/4499c6b6-77d0-4197-9aca-a4f82262f092)
 
 ### Features left to implement
+
 - Save scores on local storage or in a backend
 
 ## Testing
@@ -196,7 +197,7 @@ When clicked on the draggable square the square underneath in the stack that giv
 
 [Watch the video](https://github.com/antoniobruchidev/mp2-javascript-games/assets/149312281/7dedafe0-02c6-42dd-aa07-ddf8378b6a10)
 
-Solved by adding this line 
+Solved by adding this line
 `if (getSquareAtPosition(squareAt) === this.id){ $("#backlight-" + squareAt).css("background-color", "#cccccc")}`
 in the start function of the draggable plugin.
 It created another problem, now when the user does not drop the square it does not turn the backlight on again
@@ -212,6 +213,7 @@ in the drop function of the droppable plugin.
 [Nu HTML checker](https://validator.w3.org/nu/?doc=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F)
 
 ### CSS
+
 [![Valid CSS](https://jigsaw.w3.org/css-validator/images/vcss)](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fantoniobruchidev.github.io%2Fmp2-javascript-games%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ### JS
@@ -236,7 +238,7 @@ Javascript passes throught the JSLint extension for VSCode with only warnings
 
 ## Deployment
 
-The project is deployed on github pages at https://antoniobruchidev.github.io/mp2-javascript-games/
+The project is deployed on github pages at <https://antoniobruchidev.github.io/mp2-javascript-games/>
 
 ## Credits
 
@@ -247,3 +249,9 @@ The project is deployed on github pages at https://antoniobruchidev.github.io/mp
 ## Acknowledgemnts
 
 My Mentor Medale Oluwafemi for his patience and invaluable support
+
+## Documentation
+
+- [Javascript Home Page Section](./assets/js/doc/home/)
+- [Javascript Logic Game Section](./assets/js/doc/logic/)
+- [Javascript Knowledge Game Section](./assets/js/doc/knowledge/)
