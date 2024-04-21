@@ -252,6 +252,6 @@ My Mentor Medale Oluwafemi for his patience and invaluable support
 
 ## Documentation
 
-- [Javascript Home Page Section](./assets/js/doc/home/)
-- [Javascript Logic Game Section](./assets/js/doc/logic/)
-- [Javascript Knowledge Game Section](./assets/js/doc/knowledge/)
+- [Javascript Home Page Section](./assets/js/doc/home/index.html)
+- [Javascript Logic Game Section](./assets/js/doc/logic/index.html)
+- [Javascript Knowledge Game Section](./assets/js/doc/knowledge/index.html)
